@@ -1,21 +1,22 @@
 /*
-; ==============================
+============================================
 ; Title: selected-security-question.js
-; Author: Professor Krasso
-; Date: 16 April 2021
-; Modified By: Brooklyn Hairston
-; Description: Selected security question schema
-; ==============================
+; Author: Dan Ross
+; Date: 17 April 2021
+; Modified By: Dan Ross
+; Description: This is the selected security question schema file
+;===========================================
 */
-
-const mongoose = require('mongoose');
+//Import over the Mongoose library.
+const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-//creates a new selectedSecurityQuestionSchema with two string objects
-let selectedSecurityQuestionSchema = new Schema({
+//We're saving the text values of the security questions and answers for a user.
+let selectedSecurityQuestionSchema =  new Schema({
   questionText: { type: String },
   answerText: { type: String }
 })
 
-//exports the schema
+//Export so it can be accessed by other files.
 module.exports = selectedSecurityQuestionSchema;
+
