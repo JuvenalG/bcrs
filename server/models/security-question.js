@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 //Create security questions schema and map to securityQuestions collection.
-let securityQuestionsSchema = new Schema(
+let securityQuestionSchema = new Schema(
   {
     text: { type: String },
     idDisabled: { type: Boolean, default: false },
@@ -21,4 +21,4 @@ let securityQuestionsSchema = new Schema(
 );
 
 //Export this so we can access this file from our server file where we create our APIs.
-module.exports = mongoose.model('SecurityQuestion', securityQuestionsSchema);
+module.exports = mongoose.model('SecurityQuestion', securityQuestionSchema);
