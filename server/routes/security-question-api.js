@@ -1,6 +1,6 @@
 /*
 ; ==============================
-; Title: security-question-qpi.js
+; Title: security-question-api.js
 ; Author: Professor Krasso
 ; Date: 16 April 2021
 ; Modified By: Brooklyn Hairston, Dan Ross

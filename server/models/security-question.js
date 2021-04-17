@@ -15,7 +15,7 @@ const Schema = mongoose.Schema;
 let securityQuestionSchema = new Schema(
   {
     text: { type: String },
-    idDisabled: { type: Boolean, default: false },
+    isDisabled: { type: Boolean, default: false },
   },
   { collection: "securityQuestions" }
 );
