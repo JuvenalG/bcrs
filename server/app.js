@@ -12,6 +12,7 @@ const mongoose = require('mongoose');
 /**
  * Routes
  */
+const UserApi = require('./routes/user-api');
 const SecurityQuestionApi = require('./routes/security-question-api');
 
 
@@ -49,6 +50,7 @@ mongoose.connect(conn, {
 /**
  * API(s) go here...
  */
+app.use('/api/users', UserApi);
 app.use('/api/security-questions', SecurityQuestionApi);
 
 /**

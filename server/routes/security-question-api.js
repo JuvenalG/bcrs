@@ -18,8 +18,11 @@ const ErrorResponse = require("../services/error-response");
 const router = express.Router();
 
 /**
- * FindAll API
+ * API FindAllSecurityQuestions
+ * @param
+ * @returns securityQuestions document
  */
+
 router.get("/", async (req, res) => {
   try {
     SecurityQuestion.find({})
