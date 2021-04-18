@@ -14,9 +14,11 @@ const User = require("../models/user");
 const BaseResponse = require("../services/base-response");
 const ErrorResponse = require("../services/error-response");
 const RoleSchema = require("../schemas/user-role");
+const bcrypt = require('bcrypt')
 
 //create router
 const router = express.Router();
+const saltRounds = 10;
 
 /**
  * API FindALL
@@ -81,5 +83,52 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+/**
+ * API CreateUser
+ * @returns a new user object or null
+ * @description adds a new user object to the users collection with a post request or returns an error message
+ */
+
+ router.post('/', async(req, res) => {
+  try
+  {
+    // salt and hash the password
+      let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+      standardRole = {
+          role: 'standard'
+      }
+
+      //user object
+      let newUser = {
+          userName: req.body.userName,
+          password: hashedPassword,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          phoneNumber: req.body.phoneNumber,
+          address: req.body.address,
+          email: req.body.email,
+          role: standardRole
+      };
+
+      User.create(newUser, function(err, user) {
+          if (err) {
+              console.log(err);
+              const createUserMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err);
+              res.status(500).send(createUserMongodbErrorResponse.toObject());
+          }
+          else
+          {
+              console.log(user);
+              const createUserResponse = new BaseResponse(200, 'Query successful', user);
+              res.json(createUserResponse.toObject());
+          }
+      })
+  }
+  catch (e) {
+      console.log(e);
+      const createUserCatchErrorResponse = new ErrorResponse(500, 'Internal server error', e.message);
+      res.status(500).send(createUserCatchErrorResponse.toObject());
+  }
+})
 
 module.exports = router;

@@ -91,7 +91,6 @@ router.get("/", async (req, res) => {
 
 /**
  * CreateSecurityQuestion API
- * @param
  * @returns A new security question record or null
  * @description Creates and adds a new security question to the security question model with a post request or returns an error message
  */
