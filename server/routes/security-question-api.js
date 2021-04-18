@@ -61,6 +61,33 @@ router.get("/", async (req, res) => {
 /**
  * FindById API
  */
+ router.get('/:id', async(req,res) => {
+  try{
+      SecurityQuestion.findOne({'_id': req.params.id}, function(err,securityQuestion){
+         if(securityQuestion){
+            if(err){
+                console.log(err);
+                const findByIdMongodbErrorResponse = new ErrorResponse(500,'Internal server error', err);
+                res.status(500).send(findByIdMongodbErrorResponse.toObject());
+            } else {
+                console.log(securityQuestion);
+                const findByIdResponse = new BaseResponse(200,'Query Successful', securityQuestion);
+                res.json(findByIdResponse.toObject());
+            }}
+         else{
+          console.log(err);
+          const findByIdMongodbNoMatch = new ErrorResponse(500,'ID does not match', err);
+          res.status(500).send(findByIdMongodbNoMatch.toObject());
+         }
+      })
+  }  catch(e){
+      console.log(e);
+      const findByIdCatchErrorResponse = new ErrorResponse(500,'internal server error', e);
+      res.status(500).send(findByIdCatchErrorResponse.toObject());
+  }
+
+});
+
 
 /**
  * CreateSecurityQuestion API
