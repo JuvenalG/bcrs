@@ -1,13 +1,3 @@
-/*
-; ==============================
-; Title: sign-in.component.ts
-; Author: Professor Krasso
-; Date: 18 April 2021
-; Modified By: Brooklyn Hairston
-; Description: Sign-in component
-; ==============================
-*/
-
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -16,37 +6,29 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css']
 })
-export class SignInComponent implements OnInit {
+export class SigninComponent implements OnInit {
   form: FormGroup;
   errorMessage: string;
 
-  /**
-   *
-   * @param router
-   * @param cookieService
-   * @param fb
-   * @param http
-   * @description Creates a sign-in form with two required fields
-   */
   constructor(private router: Router, private cookieService: CookieService, private fb: FormBuilder, private http: HttpClient) {
-   }
 
-  ngOnInit(): void {
+  }
+
+  ngOnInit() {
     this.form = this.fb.group({
       userName: [null, Validators.compose([Validators.required])],
       password: [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]+$')])]
     });
   }
 
-
   /**
-   * @description the sign-in form must accept a valid username and password to navigate to the home page
-   */
-  signin() {
+     * @description the sign-in form must accept a valid username and password to navigate to the home page
+     */
+   signin() {
     const userName = this.form.controls.userName.value;
     const password = this.form.controls.password.value;
 

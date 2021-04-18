@@ -15,8 +15,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { SigninComponent } from './pages/signin/signin.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
+import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,10 @@ import { SecurityQuestionCreateComponent } from './pages/security-question-creat
     HomeComponent,
     BaseLayoutComponent,
     AuthLayoutComponent,
-    SignInComponent,
-    SecurityQuestionCreateComponent
+    SigninComponent,
+    SecurityQuestionCreateComponent,
+    DeleteRecordDialogComponent,
+    SecurityQuestionListComponent
   ],
   imports: [
     BrowserModule,

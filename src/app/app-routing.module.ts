@@ -14,7 +14,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
-import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { SigninComponent } from './pages/signin/signin.component';
 import { AuthGuard } from './shared/auth.guard';
 
 //These are routes which will load the corresponding component based on the URL path.
@@ -41,8 +41,8 @@ const routes: Routes = [
     component: AuthLayoutComponent,
     children: [
       {
-        path:"sign-in",
-        component: SignInComponent
+        path: 'signin',
+        component: SigninComponent
       }
     ]
   }

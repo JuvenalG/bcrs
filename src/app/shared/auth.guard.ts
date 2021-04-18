@@ -29,7 +29,7 @@ export class AuthGuard implements CanActivate {
       return true;
     } else {
       //If there's no active session, redirect to login page.
-      this.router.navigate(['/session/sign-in']);
+      this.router.navigate(['/session/signin']);
       return false;
     }
 
