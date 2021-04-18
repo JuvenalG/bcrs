@@ -19,6 +19,31 @@ const RoleSchema = require("../schemas/user-role");
 const router = express.Router();
 
 /**
+ * API FindALL
+ * @returns all users
+ */
+
+router.get('/', async (req, res) => {
+  try{
+    User.find({}).where('isDisabled').equals(false).exec(function(err,users){
+      if(err) {
+          console.log(err);
+          const findAllMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err);
+          res.status(500).send(findAllMongodbErrorResponse.toObject());
+      } else {
+          console.log(users);
+          const findAllUsersResponse = new BaseResponse(200,"Query Successful", users);
+          res.json(findAllUsersResponse.toObject());
+      }
+    });
+  }
+  catch(e){
+      const findAllCatchErrorResponse = new ErrorResponse(500, "Internal Server Error", e.message);
+      res.status(500).send(findAllCatchErrorResponse.toObject());
+  }
+});
+
+/**
  * API findUserById
  * @param id
  * @returns User document or null
@@ -55,5 +80,6 @@ router.get("/:id", async (req, res) => {
     res.status(500).send(findByIdCatchErrorResponse.toObject());
   }
 });
+
 
 module.exports = router;

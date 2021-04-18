@@ -31,4 +31,4 @@ let userSchema = new Schema({
 );
 
 //exports the User model
-mongoose.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);
