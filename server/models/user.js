@@ -10,7 +10,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const UserRoleSchema = require('');
+const UserRoleSchema = require('../schemas/user-role');
 
 //creates a new user schema mapped to the users collection
 let userSchema = new Schema({
@@ -27,7 +27,7 @@ let userSchema = new Schema({
   dateCreated: { type: Date, default: new Date() },
   dateModified: { type: Date }
 },
-//{ collection: 'users' }
+{ collection: 'users' }
 );
 
 //exports the User model
