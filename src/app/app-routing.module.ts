@@ -13,7 +13,11 @@ import { BaseLayoutComponent } from './shared/base-layout/base-layout.component'
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
+import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { AuthGuard } from './shared/auth.guard';
 
+//These are routes which will load the corresponding component based on the URL path.
 const routes: Routes = [
   {
     path: '',
@@ -21,12 +25,25 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+         //Apply a guard to our Home Component so users that are not logged in cannot access.
+        canActivate: [AuthGuard]
       },
       {
         path: 'security-question/create/new',
         component: SecurityQuestionCreateComponent
       },
+
+    ]
+  },
+  {
+    path: 'session',
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path:"sign-in",
+        component: SignInComponent
+      }
     ]
   }
 ];

@@ -51,7 +51,7 @@ router.get('/', async (req, res) => {
  * @returns User document or null
  */
 
-router.get("/:id", async (req, res) => {
+ router.get("/:id", async (req, res) => {
   try {
     User.findOne({ '_id': req.params.id }, function (err, user) {
       if (err) {
@@ -77,7 +77,7 @@ router.get("/:id", async (req, res) => {
     const findByIdCatchErrorResponse = new ErrorResponse(
       500,
       "Internal server error",
-      e
+      e.message
     );
     res.status(500).send(findByIdCatchErrorResponse.toObject());
   }
@@ -131,4 +131,59 @@ router.get("/:id", async (req, res) => {
   }
 })
 
+/**
+ * API deleteUser
+ * @param id
+ * @returns User document or null
+ * This will set the users field isDisabled to true, rather than actually deleting.
+ */
+
+ router.delete("/:id", async (req, res) => {
+  try {
+    User.findOne({ _id: req.params.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        const deleteUserMongodbErrorResponse = new ErrorResponse(
+          500,
+          "Internal server error",
+          err
+        );
+        res.status(500).send(deleteUserMongodbErrorResponse.toObject());
+      } else {
+        console.log(user);
+
+        user.set({
+          isDisabled: true,
+        });
+
+        user.save(function (err, savedUser) {
+          if (err) {
+            console.log(err);
+            const savedUserMongodbErrorResponse = new ErrorResponse(
+              500,
+              "Internal server error",
+              err
+            );
+          } else {
+            console.log(savedUser);
+            const savedUserResponse = new BaseResponse(
+              200,
+              "Query Successful",
+              savedUser
+            );
+            res.json(savedUserResponse.toObject());
+          }
+        });
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const deleteUserCatchErrorResponse = new BaseResponse(
+      500,
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(deleteUserCatchErrorResponse.toObject());
+  }
+});
 module.exports = router;
