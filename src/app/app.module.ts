@@ -17,6 +17,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
+import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { SecurityQuestionCreateComponent } from './pages/security-question-creat
     BaseLayoutComponent,
     AuthLayoutComponent,
     SignInComponent,
-    SecurityQuestionCreateComponent
+    SecurityQuestionCreateComponent,
+    UserCreateComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
