@@ -21,12 +21,21 @@ export class SecurityQuestionService {
 
   constructor(private http: HttpClient) { }
 
-/**
- *
- * @param newSecurityQuestion
- * @description A http post request with the URL path as the parameter
- * @returns an observable of type any
- */
+  /**
+   *
+   * @returns list of security questions
+   */
+  findAllSecurityQuestions(): Observable<any> {
+    return this.http.get('/api/security-questions');
+  }
+
+
+  /**
+   *
+   * @param newSecurityQuestion
+   * @description A http post request with the URL path as the parameter
+   * @returns an observable of type any
+   */
   createSecurityQuestion(newSecurityQuestion: SecurityQuestion): Observable<any> {
     return this.http.post('api/security-questions', {
       text: newSecurityQuestion.text

@@ -33,7 +33,7 @@ export class UserListComponent implements OnInit {
    */
   constructor(private http: HttpClient, private dialog: MatDialog, private userService: UserService) {
 
-    this.userSeervice.findAllUsers().subscribe(res => {
+    this.userService.findAllUsers().subscribe(res => {
       this.users = res['data'];
       console.log(this.users);
     }, err => {

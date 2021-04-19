@@ -22,6 +22,7 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
+import { MatTableModule } from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { UserListComponent } from './pages/user-list/user-list.component';
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
