@@ -32,4 +32,13 @@ export class SecurityQuestionService {
       text: newSecurityQuestion.text
     })
   }
+
+  /**
+   * @param questionId
+   * @returns an observable of type any
+   * @description A http delete request with the URL path as the parameter
+   */
+  deleteSecurityQuestion(questionId: string): Observable<any> {
+    return this.http.delete('/api/security-questions/' + questionId);
+  }
 }
