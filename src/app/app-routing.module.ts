@@ -1,9 +1,14 @@
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
+import { SecurityQuestion } from './shared/security-question.interface';
+import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
 /*
 ; ==============================
 ; Title: app-routing.module.ts
 ; Author: Professor Krasso
 ; Date: 18 April 2021
-; Modified By: Brooklyn Hairston
+; Modified By: Brooklyn Hairston, Dan Ross
 ; Description: App routing module
 ; ==============================
 */
@@ -26,15 +31,34 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
-         //Apply a guard to our Home Component so users that are not logged in cannot access.
         canActivate: [AuthGuard]
       },
+      {
+        path: 'users',
+        component: UserListComponent
+      },
+      {
+        path: 'users/:userId',
+        component: UserDetailsComponent
+      },
+      {
+        path: 'users/create/new',
+        component: UserCreateComponent
+      },
+      {
+        path: 'security-questions',
+        component: SecurityQuestionListComponent
+      },
+      // {
+      //   path: 'security-questions/:questionId',
+      //   component: SecurityQuestionDetailsComponent
+      // }
       {
         path: 'security-question/create/new',
         component: SecurityQuestionCreateComponent
       },
-
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: 'session',
