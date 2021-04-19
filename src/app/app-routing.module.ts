@@ -21,6 +21,9 @@ import { SecurityQuestionCreateComponent } from './pages/security-question-creat
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { AuthGuard } from './shared/auth.guard';
+import {SecurityQuestionDetailsComponent} from "./pages/security-question-details/security-question-details.component";
+
+
 
 //These are routes which will load the corresponding component based on the URL path.
 const routes: Routes = [
@@ -49,10 +52,10 @@ const routes: Routes = [
         path: 'security-questions',
         component: SecurityQuestionListComponent
       },
-      // {
-      //   path: 'security-questions/:questionId',
-      //   component: SecurityQuestionDetailsComponent
-      // }
+       {
+         path: 'security-questions/:questionId',
+        component: SecurityQuestionDetailsComponent
+       },
       {
         path: 'security-question/create/new',
         component: SecurityQuestionCreateComponent

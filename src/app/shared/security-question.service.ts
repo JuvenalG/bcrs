@@ -31,6 +31,16 @@ export class SecurityQuestionService {
 
 
   /**
+   * findSecurityQuestionById
+   * @param id
+   * @returns matching security question
+   */
+  findSecurityQuestionById(questionId: string): Observable<any> {
+      return this.http.get('/api/security-questions/' + questionId);
+  }
+
+
+  /**
    *
    * @param newSecurityQuestion
    * @description A http post request with the URL path as the parameter
