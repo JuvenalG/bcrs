@@ -6,13 +6,20 @@
       <!-- navbar container -->
       <div class="navbar-container">
         <!-- logo -->
-        <button class="logo" routerLink="/security-questions" mat-button>Service Repair</button>
-
+        <button class="logo"  mat-button>Service Repair</button>
         <button class="navbar-link" routerLink="/" mat-button>Purchase by Service</button>
         <button class="navbar-link" routerLink="/" mat-button>Contact Us</button>
         <button class="navbar-link" routerLink="/" mat-button>About Us</button>
-        <button class="navbar-link" mat-button (click)="signOut()">Sign Out</button>
+        <button  mat-icon-button [matMenuTriggerFor]="menu"><mat-icon> account_circle </mat-icon></button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/users">User Configuration</button>
+  <button mat-menu-item routerLink="/security-questions">Security Questions</button>
+  <button mat-menu-item routerLink="/roles">Role Configuration</button>
+  <button mat-menu-item (click)="signOut()">Log Out</button>
+</mat-menu>
+
       </div>
+
 
     </mat-toolbar>
   </nav>

@@ -25,7 +25,7 @@ import { SecurityQuestionDetailsComponent } from './pages/security-question-deta
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from "@angular/material/dialog";
-
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,8 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatCardModule,
     MatFormFieldModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
