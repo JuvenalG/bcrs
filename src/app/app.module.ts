@@ -17,8 +17,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
+<<<<<<< HEAD
+import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+=======
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
+>>>>>>> 7dde80acd88bce2adaf169b9e36f79e19a559e05
 
 @NgModule({
   declarations: [
@@ -26,10 +31,17 @@ import { SecurityQuestionListComponent } from './pages/security-question-list/se
     HomeComponent,
     BaseLayoutComponent,
     AuthLayoutComponent,
+<<<<<<< HEAD
+    SignInComponent,
+    SecurityQuestionCreateComponent,
+    UserCreateComponent,
+    UserDetailsComponent
+=======
     SigninComponent,
     SecurityQuestionCreateComponent,
     DeleteRecordDialogComponent,
     SecurityQuestionListComponent
+>>>>>>> 7dde80acd88bce2adaf169b9e36f79e19a559e05
   ],
   imports: [
     BrowserModule,
