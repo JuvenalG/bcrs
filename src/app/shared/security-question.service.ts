@@ -43,6 +43,18 @@ export class SecurityQuestionService {
   }
 
   /**
+   * UpdateSecurityQuestion
+   * @param questionId @param updatedSecurityQuestion
+   * @returns updated security object
+   */
+
+  updateSecurityQuestion(questionId: string, updatedSecurityQuestion: SecurityQuestion): Observable<any> {
+      return this.http.put('/api/security-questions/' + questionId, {
+          text: updatedSecurityQuestion.text
+      })
+  }
+
+  /**
    * @param questionId
    * @returns an observable of type any
    * @description A http delete request with the URL path as the parameter
