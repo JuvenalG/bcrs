@@ -17,9 +17,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
+import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
-import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 
 @NgModule({
@@ -30,10 +31,12 @@ import { UserListComponent } from './pages/user-list/user-list.component';
     AuthLayoutComponent,
     SigninComponent,
     SecurityQuestionCreateComponent,
+    UserCreateComponent,
+    UserDetailsComponent,
     DeleteRecordDialogComponent,
     SecurityQuestionListComponent,
-    UserDetailsComponent,
     UserListComponent
+
   ],
   imports: [
     BrowserModule,

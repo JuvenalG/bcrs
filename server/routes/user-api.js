@@ -132,6 +132,55 @@ router.get('/', async (req, res) => {
 })
 
 /**
+ * UpdateUser
+ * @param id
+ * @returns updated user
+ * Inserts new updated user into postion of old user
+ */
+
+  router.put('/:id', async (req,res) => {
+      try{
+          User.findOne({'_id': req.params.id}, function (err,user){
+              if(err) {
+                  console.log(err);
+                  const updateUserMongodbErrorResponse = new ErrorResponse(500, "Internal Server Error", err);
+                  res.status(500).send(updateUserMongodbErrorResponse.toObject());
+              }
+              else{
+                  console.log(user);
+
+                  user.set({
+                      firstName: req.body.firstName,
+                      lastName: req.body.lastName,
+                      phoneNumber: req.body.phoneNumber,
+                      address: req.body.address,
+                      email: req.body.email
+                  })
+
+                  user.save(function(err, savedUser){
+                      if(err) {
+                          console.log(err);
+                          const savedUserMongodbErrorResponse = new ErrorResponse(500, "interal sever error(.save function)", err);
+                          res.status(500).send(savedUserMongodbErrorResponse.toObject());
+                      } else {
+                          console.log(savedUser);
+                          const savedUserResponse = new BaseResponse(200,'Query Successful', savedUser);
+                          res.json(savedUserResponse.toObject());
+                      }
+                  })
+              }
+          })
+      }
+      catch(e)
+      {
+        console.log(e);
+        const updateUserCatchErrorResponse = new ErrorResponse(500, 'Internal Server Error', e.message);
+        res.json(updateUserCatchErrorResponse.toObject());
+      }
+  });
+
+
+/**
  * API deleteUser
  * @param id
  * @returns User document or null
