@@ -3,7 +3,7 @@
 
   <!-- user mat card -->
   <mat-card>
-
+    <mat-card-title>Users Configuration</mat-card-title>
     <!-- create new user button-->
     <mat-card-subtitle>
       <button mat-button routerLink="/users/create/new" color="accent">Create</button>
@@ -11,28 +11,28 @@
     <!-- end create new user button -->
 
     <!-- user list -->
-    <mat-card-content ngIf="users">
+    <mat-card-content *ngIf="users">
       <table mat-table [dataSource]="users">
 
         <!-- username -->
         <ng-container matColumnDef="userName">
         <th mat-header-cell *matHeaderCellDef>Username</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.userName }}
+          {{element.userName}}
         </td>
       </ng-container>
       <!-- end username-->
 
       <!-- firstName -->
       <ng-container matColumnDef="firstName">
-        <th mat-header-cell *matHeaderCellDef>Last Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
       </ng-container>
       <!-- end firstName -->
 
       <!-- lastName -->
       <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
         <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
       </ng-container>
       <!-- end lastName -->
@@ -61,11 +61,11 @@
       <!-- functions -->
       <ng-container matColumnDef="functions">
         <th mat-header-cell *matHeaderCellDef>Functions</th>
-        <td mat-cel *matCellDef="let element">
+        <td mat-cell *matCellDef="let element">
 
           <!-- edit -->
-          <button mat-icon-button routerLink="/users/{{ element._id }}">
-            <mat-con color="accent">edit</mat-con>
+          <button mat-icon-button routerLink="/users/{{element._id}}">
+            <mat-icon color="accent">edit</mat-icon>
           </button>
           <!-- end edit -->
 
@@ -77,6 +77,10 @@
         </td>
       </ng-container>
       <!-- end functions -->
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
       </table>
     </mat-card-content>
     <!-- end user list -->

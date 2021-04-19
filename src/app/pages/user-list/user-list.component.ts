@@ -15,6 +15,7 @@ import { DeleteRecordDialogComponent } from './../../shared/delete-record-dialog
 import { UserService } from './../../shared/user.service';
 import { User } from './../../shared/user.interface';
 
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -22,7 +23,7 @@ import { User } from './../../shared/user.interface';
 })
 export class UserListComponent implements OnInit {
   users: User[];
-  displayedColumn = ['userName', 'lastName', 'phoneNumber', 'address', 'email', 'functions'];
+  displayedColumns = ['userName', 'firstName', 'lastName', 'phoneNumber', 'address', 'email', 'functions'];
 
 
   /**
@@ -43,5 +44,27 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  delete(userId, recordId){
+      const dialogRef = this.dialog.open(DeleteRecordDialogComponent, {
+          data: {
+              recordId,
+              dialogHeader: "Delete Record Dialog",
+              dialogBody: `Are you sure you want to delete user ${recordId}`
+          },
+          disableClose: true,
+          width: '800px'
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+          if(result === 'confirm') {
+              this.userService.deleteUser(userId).subscribe(res => {
+                  console.log('user delete');
+                  this.users= this.users.filter(u => u._id !== userId);
+              })
+          }
+      });
+  }
+
 
 }
