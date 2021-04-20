@@ -1,3 +1,12 @@
+/*
+; ==============================
+; Title: security-question-details.component.ts
+; Author: Dan Ross
+; Date: 18 April 2021
+; Modified By: Dan Ross
+; Description: Security details list component
+; ==============================
+*/
 import { Component, OnInit } from '@angular/core';
 import { SecurityQuestion } from 'src/app/shared/security-question.interface';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';

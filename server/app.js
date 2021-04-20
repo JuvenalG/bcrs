@@ -1,3 +1,12 @@
+/*
+; ==============================
+; Title: app.js
+; Author: Dan Ross
+; Date: 18 April 2021
+; Modified By: Dan Ross
+; Description: This is our main app.js file
+; ==============================
+*/
 /**
  * Require statements
  */
