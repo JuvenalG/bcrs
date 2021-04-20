@@ -26,6 +26,7 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from "@angular/material/dialog";
 import {MatMenuModule} from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatFormFieldModule,
     MatTableModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

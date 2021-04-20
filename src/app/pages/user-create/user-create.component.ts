@@ -63,7 +63,7 @@ export class UserCreateComponent implements OnInit {
   }
 
   /**
-   * This will cancel the creation of the new user and go back to the user list page.
+   * This will cancel the creation of the new user and go back to the user list page.                         
    */
   cancel() {
     this.router.navigate(['/users'])

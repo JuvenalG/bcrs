@@ -57,7 +57,7 @@ const routes: Routes = [
         component: SecurityQuestionDetailsComponent
        },
       {
-        path: 'security-question/create/new',
+        path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent
       },
     ],
