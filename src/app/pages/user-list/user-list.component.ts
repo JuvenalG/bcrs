@@ -31,6 +31,8 @@ export class UserListComponent implements OnInit {
    * @param http
    * @param dialog
    * @param userService
+   * @returns a list of users
+   * @description queries the database for all users
    */
   constructor(private http: HttpClient, private dialog: MatDialog, private userService: UserService) {
 
@@ -44,6 +46,13 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  /**
+   *
+   * @param userId
+   * @param recordId
+   * @description opens the delete record dialog box
+   */
 
   delete(userId, recordId){
       const dialogRef = this.dialog.open(DeleteRecordDialogComponent, {

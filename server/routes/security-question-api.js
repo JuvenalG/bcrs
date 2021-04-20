@@ -95,43 +95,29 @@ router.get("/", async (req, res) => {
  * @description Creates and adds a new security question to the security question model with a post request or returns an error message
  */
 
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     let newSecurityQuestion = {
       text: req.body.text,
     };
 
-    SecurityQuestion.create(
-      newSecurityQuestion,
-      function (err, securityQuestion) {
+    SecurityQuestion.create(newSecurityQuestion, function (err, securityQuestion) {
         if (err) {
           console.log(err);
-          const createSecurityQuestionMongodbErrorResponse = new ErrorResponse(
-            500,
-            "Internal server error",
-            err
-          );
-          res
-            .status(500)
-            .send(createSecurityQuestionMongodbErrorResponse.toObject());
-        } else {
+          const createSecurityQuestionMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err );
+          res.status(500).send(createSecurityQuestionMongodbErrorResponse.toObject());
+        }
+         else
+         {
           console.log(securityQuestion);
-          const createSecurityQuestionResponse = new BaseResponse(
-            200,
-            "Query successful",
-            securityQuestion
-          );
+          const createSecurityQuestionResponse = new BaseResponse(200, 'Query successful', securityQuestion);
           res.json(createSecurityQuestionResponse.toObject());
         }
-      }
-    );
-  } catch (e) {
+      })
+  }
+  catch (e) {
     console.log(e);
-    const createSecurityQuestionCatchErrorResponse = new ErrorResponse(
-      500,
-      "Internal server error",
-      e.message
-    );
+    const createSecurityQuestionCatchErrorResponse = new ErrorResponse(500, 'Internal server error', e.message);
     res.status(500).send(createSecurityQuestionCatchErrorResponse.toObject());
   }
 });

@@ -1,3 +1,13 @@
+/*
+; ==============================
+; Title: signin.component
+; Author: Professor Krasso
+; Date: 18 April 2021
+; Modified By: Brooklyn Hairston
+; Description: Signin Component
+; ==============================
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -14,9 +24,21 @@ export class SigninComponent implements OnInit {
   form: FormGroup;
   errorMessage: string;
 
+  /**
+   *
+   * @param router
+   * @param cookieService
+   * @param fb
+   * @param http
+   */
   constructor(private router: Router, private cookieService: CookieService, private fb: FormBuilder, private http: HttpClient) {
 
   }
+
+
+  /**
+   * @description signin form with two required fields
+   */
 
   ngOnInit() {
     this.form = this.fb.group({

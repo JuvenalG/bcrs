@@ -23,16 +23,30 @@ export class SecurityQuestionCreateComponent implements OnInit {
 
   form: FormGroup;
 
+  /**
+   *
+   * @param fb
+   * @param router
+   * @param securityQuestionService
+   */
+
   constructor(private fb: FormBuilder, private router: Router, private securityQuestionService: SecurityQuestionService) {
 
    }
 
-  ngOnInit(): void {
+   /**
+    * @description form with one required field
+    */
+
+  ngOnInit() {
     this.form = this.fb.group({
       text: [null, Validators.compose([Validators.required])],
     });
   }
 
+  /**
+   * @description adds a new security question
+   */
   create() {
     const newSecurityQuestion = {} as SecurityQuestion;
     newSecurityQuestion.text = this.form.controls.text.value;
@@ -43,6 +57,11 @@ export class SecurityQuestionCreateComponent implements OnInit {
       console.log(err);
     })
   }
+
+
+  /**
+   * @description cancels adding a new security question
+   */
 
   cancel() {
     this.router.navigate(['/security-questions']);

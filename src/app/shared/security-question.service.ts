@@ -43,11 +43,10 @@ export class SecurityQuestionService {
   /**
    *
    * @param newSecurityQuestion
-   * @description A http post request with the URL path as the parameter
-   * @returns an observable of type any
+   * @returns a new security question
    */
   createSecurityQuestion(newSecurityQuestion: SecurityQuestion): Observable<any> {
-    return this.http.post('api/security-questions', {
+    return this.http.post('/api/security-questions', {
       text: newSecurityQuestion.text
     })
   }
