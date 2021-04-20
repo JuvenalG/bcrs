@@ -1,3 +1,13 @@
+/*
+; ==============================
+; Title: app-routing.module.ts
+; Author: Dan Ross
+; Date: 18 April 2021
+; Modified By: Dan Ross
+; Description: This is the app-routing.module.ts file
+; ==============================
+*/
+
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 import { SecurityQuestion } from './shared/security-question.interface';
 import { UserCreateComponent } from './pages/user-create/user-create.component';

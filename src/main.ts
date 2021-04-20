@@ -1,3 +1,12 @@
+/*
+; ==============================
+; Title: main.ts
+; Author: Dan Ross
+; Date: 18 April 2021
+; Modified By: Dan Ross
+; Description: This is the main.ts file
+; ==============================
+*/
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

@@ -1,14 +1,22 @@
+/*
+; ==============================
+; Title: home.component.css
+; Author: Dan Ross
+; Date: 18 April 2021
+; Modified By: Dan Ross
+; Description: This is the home component css page
+; ==============================
+*/
 .main-welcome {
     margin-top: 30px;
   }
-  
+
   .title {
     text-align: center;
     font-weight: lighter;
   }
-  
+
   .subtitle {
     text-align: center;
     font-size: 14px;
   }
-  
