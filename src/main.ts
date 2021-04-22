@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 /*
 ; ==============================
 ; Title: main.ts
@@ -8,17 +7,6 @@
 ; Description: This is the main.ts file
 ; ==============================
 */
-=======
-/**
- * Title: main.ts
- * Author: Professor Krasso
- * Date: 19 April 2021
- * Modified By: Juvenal Gonzalez
- * Description: main ts file
- */
-
-
->>>>>>> Stashed changes
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
