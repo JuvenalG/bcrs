@@ -3,7 +3,7 @@
 ; Title: security-question-api.js
 ; Author: Professor Krasso
 ; Date: 16 April 2021
-; Modified By: Brooklyn Hairston, Dan Ross
+; Modified By: Brooklyn Hairston, Dan Ross, Juvenal Gonzalez
 ; Description: Security question router
 ; ==============================
 */
@@ -60,6 +60,8 @@ router.get("/", async (req, res) => {
 
 /**
  * FindById API
+ * @param id
+ * @returns matching Id question
  */
  router.get('/:id', async(req,res) => {
   try{
@@ -124,6 +126,8 @@ router.post('/', async (req, res) => {
 
 /**
  * UpdateSecurityQuestion API
+ * @param id
+ * @returns Updated Security Question
  */
 
   router.put("/:id", async(req, res) => {

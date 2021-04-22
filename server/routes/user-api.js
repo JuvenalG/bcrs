@@ -3,7 +3,7 @@
 ; Title: user-api.js
 ; Author: Dan Ross
 ; Date: 20 March 2021
-; Modified By: Dan Ross, Brooklyn Hairston
+; Modified By: Dan Ross, Brooklyn Hairston, Juvenal Gonzalez
 ; Description: CRUD APIs for Users
 ;===========================================
 */

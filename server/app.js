@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /*
 ; ==============================
 ; Title: app.js
@@ -7,6 +8,18 @@
 ; Description: This is our main app.js file
 ; ==============================
 */
+=======
+
+/**
+ * Title: app.js
+ * Author: Professor Krasso
+ * Date: 19 April 2021
+ * Modified By: Juvenal Gonzalez
+ * Description: sets up server and imports server relaated libraries
+ */
+
+
+>>>>>>> Stashed changes
 /**
  * Require statements
  */

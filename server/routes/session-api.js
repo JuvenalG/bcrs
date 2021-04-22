@@ -16,7 +16,12 @@ const ErrorResponse = require('../services/error-response')
 const BaseResponse = require('../services/base-response');
 
 const router = express.Router();
-
+/**
+ * API SignIn
+ * @param username
+ * @param password
+ * Used for Sign In Process
+ */
 router.post('/signin', async (req, res) => {
     try{
         User.findOne({'userName': req.body.userName}, function (err, user)

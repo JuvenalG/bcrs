@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /*
 ; ==============================
 ; Title: security-question-details.component.ts
@@ -7,6 +8,17 @@
 ; Description: Security details list component
 ; ==============================
 */
+=======
+/**
+ * Title: security-question-details.component.ts
+ * Author: Professor Krasso
+ * Date: 19 April 2021
+ * Modified By: Juvenal Gonzalez
+ * Description: main component for security-question-details
+ */
+
+
+>>>>>>> Stashed changes
 import { Component, OnInit } from '@angular/core';
 import { SecurityQuestion } from 'src/app/shared/security-question.interface';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -24,10 +36,10 @@ export class SecurityQuestionDetailsComponent implements OnInit {
   questionId: string;
   form: FormGroup;
 
-
+              //imported parametes intialzed with objects from assisting libraries so that their stored methods can used
   constructor(private route: ActivatedRoute, private http: HttpClient, private fb: FormBuilder, private router: Router, private SecurityQuestionService: SecurityQuestionService) {
       this.questionId = this.route.snapshot.paramMap.get('questionId');
-
+                 //displays this on page by matching ids when question is clicked using the API
       this.SecurityQuestionService.findSecurityQuestionById(this.questionId).subscribe(res => {
          this.question = res['data'];
       }, err => {
@@ -43,7 +55,7 @@ export class SecurityQuestionDetailsComponent implements OnInit {
       });
   }
 
-  saveQuestion() {
+  saveQuestion() {  //Used on submit to store newly entered question
       const updatedSecurityQuestion = {} as SecurityQuestion;
       updatedSecurityQuestion.text = this.form.controls.text.value;
 
@@ -52,7 +64,7 @@ export class SecurityQuestionDetailsComponent implements OnInit {
       })
   }
 
-  cancel() {
+  cancel() {  //cancels and routes back to all security questions
       this.router.navigate(['/security-questions']);
   }
 

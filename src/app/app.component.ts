@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /*
 ; ==============================
 ; Title: app.component.ts
@@ -7,6 +8,17 @@
 ; Description: This is the main app component
 ; ==============================
 */
+=======
+/**
+ * Title: app.component.ts
+ * Author: Professor Krasso
+ * Date: 19 April 2021
+ * Modified By: Juvenal Gonzalez
+ * Description: main component for app component
+ */
+
+
+>>>>>>> Stashed changes
 import { Component } from '@angular/core';
 
 @Component({
