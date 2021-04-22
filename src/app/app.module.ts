@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 /*
 ; ==============================
 ; Title: app.module.ts
@@ -8,17 +7,6 @@
 ; Description: This is the app module
 ; ==============================
 */
-=======
-/**
- * Title: app.module.ts
- * Author: Professor Krasso
- * Date: 19 April 2021
- * Modified By: Juvenal Gonzalez
- * Description: main component for app.module all imports in project are declared here
- */
-
-
->>>>>>> Stashed changes
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 

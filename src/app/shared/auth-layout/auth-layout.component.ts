@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 /*
 ; ==============================
 ; Title: auth-layout.component.ts
@@ -8,17 +7,6 @@
 ; Description: Auth Layout component
 ; ==============================
 */
-=======
-/**
- * Title: auth-layout.component.ts
- * Author: Professor Krasso
- * Date: 19 April 2021
- * Modified By: Dan Ross
- * Description: main component for auth-layout
- */
-
-
->>>>>>> Stashed changes
 import { Component, OnInit } from '@angular/core';
 
 @Component({
