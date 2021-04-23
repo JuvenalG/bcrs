@@ -235,4 +235,44 @@ router.get('/', async (req, res) => {
     res.status(500).send(deleteUserCatchErrorResponse.toObject());
   }
 });
+
+/**
+ * FindSelectedSecurityQuestions
+ * @returns The selected security questions for the user
+ * @description Queries the database using the userName and returns the selected security questions for that userName
+ */
+router.get('/:userName/security-questions', async (req, res) => {
+  try
+  {
+    User.findOne({'userName': req.params.userName}, function(err, user)
+    {
+      if (err)
+      {
+        console.log(err);
+        const findSelectedSecurityQuestionsMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+        res.status(500).send(findSelectedSecurityQuestionsMongodbErrorResponse.toObject());
+      }
+      else
+      if (user)
+      {
+        console.log(user);
+        const findSelectedSecurityQuestionsResponse = new BaseResponse('200', 'Query successful', user.selectedSecurityQuestions);
+        res.json(findSelectedSecurityQuestionsResponse.toObject());
+      }
+      else
+      {
+        console.log('Invalid username');
+        const invalidUserNameResponse = new ErrorResponse('401', 'Username is invalid', null)
+        res.status(401).send(invalidUserNameResponse.toObject());
+      }
+    })
+  }
+  catch (e)
+  {
+    console.log(e);
+    const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e);
+    res.status(500).send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
+  }
+});
+
 module.exports = router;

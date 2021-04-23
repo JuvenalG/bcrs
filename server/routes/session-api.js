@@ -3,7 +3,7 @@
 ; Title: session-api.js
 ; Author: Professor Krasso
 ; Date: 16 April 2021
-; Modified By: Juvenal Gonzalez, Dan  Ross
+; Modified By: Juvenal Gonzalez, Dan  Ross, Brooklyn Hairston
 ; Description: API to handle SignIn requests
 ; ==============================
 */
@@ -161,5 +161,42 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
     res.status(500).send(verifySecurityQuestionsMongodbErrorReponse.toObject());
   }
 });
+
+/**
+ * VerifyUser API
+ * @returns Verifies the userName or an error
+ * @description Queries the database for the userName and verify the userName is valid
+ */
+router.get('/verify/users/:userName', async (req, res) => {
+  try
+  {
+    User.findOne({'userName': req.params.userName}, function(err, user)
+    {
+      if (err)
+      {
+        console.log(err);
+        const verifyUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+        res.status(500).send(verifyUserMongodbErrorResponse.toObject());
+      }
+      else
+        if (user) {
+          console.log(user);
+          const verifyUserResponse = new BaseResponse('200', 'Query successful', user);
+          res.status(500).send(verifyUserResponse.toObject());
+        } else
+        {
+          console.log('Invalid username');
+          const invalidUserNameResponse = new ErrorResponse('401', 'Username is invalid', null)
+          res.status(401).send(invalidUserNameResponse.toObject());
+        }
+    })
+  }
+  catch (e)
+  {
+    console.log(e);
+    const verifyUserCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e.message);
+    res.status(500).send(verifyUserCatchErrorResponse.toObject());
+  }
+})
 
 module.exports = router;
