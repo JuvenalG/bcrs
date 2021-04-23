@@ -1,18 +1,4 @@
-/*
-; ==============================
-; Title: app-routing.module.ts
-; Author: Dan Ross
-; Date: 18 April 2021
-; Modified By: Dan Ross
-; Description: This is the app-routing.module.ts file
-; ==============================
-*/
-
-import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
-import { SecurityQuestion } from './shared/security-question.interface';
-import { UserCreateComponent } from './pages/user-create/user-create.component';
-import { UserDetailsComponent } from './pages/user-details/user-details.component';
-import { UserListComponent } from './pages/user-list/user-list.component';
+import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
 /*
 ; ==============================
 ; Title: app-routing.module.ts
@@ -23,6 +9,12 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 ; ==============================
 */
 
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
+import { SecurityQuestion } from './shared/security-question.interface';
+import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
+
 import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { NgModule } from '@angular/core';
@@ -31,7 +23,7 @@ import { SecurityQuestionCreateComponent } from './pages/security-question-creat
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { AuthGuard } from './shared/auth.guard';
-import {SecurityQuestionDetailsComponent} from "./pages/security-question-details/security-question-details.component";
+import { SecurityQuestionDetailsComponent } from "./pages/security-question-details/security-question-details.component";
 
 
 
@@ -62,10 +54,10 @@ const routes: Routes = [
         path: 'security-questions',
         component: SecurityQuestionListComponent
       },
-       {
-         path: 'security-questions/:questionId',
+      {
+        path: 'security-questions/:questionId',
         component: SecurityQuestionDetailsComponent
-       },
+      },
       {
         path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent
@@ -80,6 +72,10 @@ const routes: Routes = [
       {
         path: 'signin',
         component: SigninComponent
+      },
+      {
+        path: 'verify-security-questions',
+        component: VerifySecurityQuestionsFormComponent
       }
     ]
   }

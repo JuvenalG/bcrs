@@ -36,6 +36,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from "@angular/material/dialog";
 import {MatMenuModule} from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
+import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { MatInputModule } from '@angular/material/input';
     DeleteRecordDialogComponent,
     SecurityQuestionListComponent,
     UserListComponent,
-    SecurityQuestionDetailsComponent
+    SecurityQuestionDetailsComponent,
+    VerifySecurityQuestionsFormComponent
 
 
   ],
@@ -70,7 +73,8 @@ import { MatInputModule } from '@angular/material/input';
     MatTableModule,
     MatDialogModule,
     MatMenuModule,
-    MatInputModule
+    MatInputModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
