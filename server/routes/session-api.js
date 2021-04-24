@@ -215,14 +215,14 @@ router.post('/register', async(req,res) => {
       User.findOne({'userName': req.body.userName}, function (err,user)
       {
         if(err)
-        {
+        {          //Server Error
           console.log(err);
           const registerUserMongodbEroorResponse = new ErrorResponse('500', 'Internal Server Error', err);
           res.status(500).send(registerUserMongodbEroorResponse.toObject());
         }
         else
-        {
-           if(!user)
+        {             //successful query
+           if(!user)//No matching userName in Database
            {
              let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
              standardRole = {
@@ -230,7 +230,7 @@ router.post('/register', async(req,res) => {
              }
 
 
-             let registeredUser = {
+             let registeredUser = {    //uses the returned json object from a post call to create a User
                 userName: req.body.userName,
                 password: hashedPassword,
                 firstName: req.body.firstName,
@@ -241,7 +241,7 @@ router.post('/register', async(req,res) => {
                 role: standardRole,
                 selectedSecurityQuestions: req.body.selectedSecurityQuestions
              };
-
+                     // .create is a built in function from Mongo db that allows an object to be inserted into the document store
              User.create(registeredUser, function(err, newUser)
              {
                 if(err)
@@ -259,7 +259,7 @@ router.post('/register', async(req,res) => {
              })
            }
         else
-        {
+        {            //USERNAME is alreayd in USE
            console.log('This username has already been registered!');
            const userAlreadyExistsErrorResponse = new ErrorResponse('500', "User already exists in database", null);
            res.status(500).send(userAlreadyExistsErrorResponse.toObject());
@@ -268,11 +268,14 @@ router.post('/register', async(req,res) => {
     })
   }catch(e)
   {
-      console.log(e);
+      console.log(e); //Server error Catch
       const registeredUserCatchResponse = new ErrorResponse('500', 'Internal Server Error', e.message);
       res.status(500).send(registeredUserCatchResponse.toObject());
   }
       });
+
+
+
 
 module.exports = router;
 

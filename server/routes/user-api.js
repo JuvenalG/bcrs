@@ -19,6 +19,7 @@ const bcrypt = require('bcrypt')
 //create router
 const router = express.Router();
 const saltRounds = 10;
+//   route: /api/users
 
 /**
  * API FindALL
@@ -274,5 +275,68 @@ router.get('/:userName/security-questions', async (req, res) => {
     res.status(500).send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
   }
 });
+
+/**
+ * ResetPassword API
+ * @params userName
+ * @returns new password
+ */
+
+  router.post('/:userName/reset-password', async(req, res) => {
+       console.log('HERE');
+      try{
+          console.log('here2');
+          const password = req.body.password;
+
+           User.findOne({'userName': req.params.userName}, function(err, user)
+           {
+             if (err)
+             {
+               console.log(err);//SERVER ERROR
+               const ResetPasswordErrorRespons = new ErrorResponse('500', "Internal Server Error", err);
+               res.status(500).send(ResetPasswordErrorRespons.toObject());
+             }
+             else if(User)     //checks for user
+             {
+               console.log(user);
+
+               let hashedPassword = bcrypt.hashSync(password, saltRounds);
+
+               user.set({  //sends encrypted value instead of actual password
+                  password: hashedPassword
+               });
+
+                   // .save is a mongoDb funtion to store documents in a document store
+               user.save(function(err, updatedUser)
+               {
+                  if(err)
+                  {
+                    console.log(err);
+                    const updatedUserMongodbErrorResponse = new ErrorResponse('500', 'Internal Server Error', err);
+                    res.status(500).send(updatedUserMongodbErrorResponse.toObject());
+                  }
+                  else
+                  {     //successful update of password
+                   console.log(updatedUser);
+                   const updatedPasswordResponse = new ErrorResponse('200', 'Successfull query', updatedUser);
+                   res.json(updatedPasswordResponse.toObject());
+                  }
+               })
+             }
+             else
+             {    //invalid USERNAME
+               console.log('Username does not exist!');
+               const noUserResponse = new BaseResponse('200', 'User does not exist!', req.params.userName);
+               res.json(noUserResponse.toObject());
+             }
+           })
+      }
+      catch(e)
+      {
+        console.log(e);  //Internal server error catch
+        const ResetPasswordCatchError = new ErrorResponse('500', 'Internal Server Error', e);
+        res.status(500).send(ResetPasswordCatchError.toObject());
+      }
+  });
 
 module.exports = router;
