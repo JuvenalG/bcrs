@@ -38,6 +38,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
 import { MatListModule } from '@angular/material/list';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import { MatListModule } from '@angular/material/list';
     SecurityQuestionListComponent,
     UserListComponent,
     SecurityQuestionDetailsComponent,
-    VerifySecurityQuestionsFormComponent
+    VerifySecurityQuestionsFormComponent,
+    ResetPasswordComponent,
+    AboutComponent
 
 
   ],
@@ -74,7 +79,8 @@ import { MatListModule } from '@angular/material/list';
     MatDialogModule,
     MatMenuModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    MatStepperModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

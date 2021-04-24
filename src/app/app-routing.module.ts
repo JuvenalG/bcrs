@@ -24,6 +24,8 @@ import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component'
 import { SigninComponent } from './pages/signin/signin.component';
 import { AuthGuard } from './shared/auth.guard';
 import { SecurityQuestionDetailsComponent } from "./pages/security-question-details/security-question-details.component";
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { AboutComponent } from './pages/about/about.component';
 
 
 
@@ -62,6 +64,10 @@ const routes: Routes = [
         path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent
       },
+      {
+        path: 'about',
+        component: AboutComponent
+      },
     ],
     canActivate: [AuthGuard]
   },
@@ -76,7 +82,11 @@ const routes: Routes = [
       {
         path: 'verify-security-questions',
         component: VerifySecurityQuestionsFormComponent
-      }
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordComponent
+      },
     ]
   }
 ];
