@@ -1,3 +1,4 @@
+import { ErrorInterceptor } from './shared/error.interceptor';
 /*
 ; ==============================
 ; Title: app.module.ts
@@ -22,7 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
@@ -38,6 +39,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
 import { MatListModule } from '@angular/material/list';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import { MatListModule } from '@angular/material/list';
     SecurityQuestionListComponent,
     UserListComponent,
     SecurityQuestionDetailsComponent,
-    VerifySecurityQuestionsFormComponent
+    VerifySecurityQuestionsFormComponent,
+    NotFoundComponent,
+    ErrorComponent
 
 
   ],
@@ -76,7 +81,11 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     MatListModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
