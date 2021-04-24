@@ -26,6 +26,8 @@ import { SecurityQuestionDetailsComponent } from "./pages/security-question-deta
 import { ErrorComponent } from './pages/error/error.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { AboutComponent } from './pages/about/about.component';
 
 
 
@@ -64,6 +66,10 @@ const routes: Routes = [
         path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent
       },
+      {
+        path: 'about',
+        component: AboutComponent
+      },
     ],
     canActivate: [AuthGuard]
   },
@@ -86,6 +92,10 @@ const routes: Routes = [
       {
         path: 'error',
         component: ErrorComponent
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordComponent
       }
     ]
   },
