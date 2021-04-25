@@ -22,6 +22,7 @@
   <mat-toolbar-row></mat-toolbar-row>
 </mat-toolbar>
 
+<br /><br />
 <div fxLayout="row wrap" fxLayoutAlign="center start">
   <div fxFlex.gt-sm="55" fxFlex="100">
     <mat-card-title
@@ -40,7 +41,7 @@
 
       *ngIf="selectedSecurityQuestions"
       [formGroup]="form"
-      (ngSubmit)="verifySecurityQuestions()"
+      (ngSubmit)="verifySecurityQuestions(); usernameForm.reset() "
       #usernameForm
     >
       <mat-card-content fxLayout="column">
