@@ -11,7 +11,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const UserRoleSchema = require('../schemas/user-role');
-
+const SelectedSecurityQuestionSchema = require('../schemas/selected-security-question');
 //creates a new user schema mapped to the users collection
 let userSchema = new Schema({
   userName: { type: String, required: true, unique: true, dropDups: true },
@@ -23,7 +23,7 @@ let userSchema = new Schema({
   email: { type: String },
   isDisabled: { type: Boolean, default: false },
   role: UserRoleSchema,
-  //selectedSecurityQuestions: [SelectedSecurityQuestionSchema],
+  selectedSecurityQuestions: [SelectedSecurityQuestionSchema],
   dateCreated: { type: Date, default: new Date() },
   dateModified: { type: Date }
 },

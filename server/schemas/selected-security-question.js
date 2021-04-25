@@ -12,10 +12,11 @@ const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
 //We're saving the text values of the security questions and answers for a user.
-let selectedSecurityQuestionSchema =  new Schema({
+let selectedSecurityQuestionSchema =  new Schema ({
   questionText: { type: String },
   answerText: { type: String }
-})
+  },
+)
 
 //Export so it can be accessed by other files.
 module.exports = selectedSecurityQuestionSchema;
