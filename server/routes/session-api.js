@@ -188,7 +188,7 @@ router.get('/verify/users/:userName', async (req, res) => {
         if (user) {
           console.log(user);
           const verifyUserResponse = new BaseResponse('200', 'Query successful', user);
-          res.status(500).send(verifyUserResponse.toObject());
+          res.status(200).send(verifyUserResponse.toObject());
         } else
         {
           console.log('Invalid username');

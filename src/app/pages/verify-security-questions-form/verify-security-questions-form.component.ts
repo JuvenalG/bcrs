@@ -67,7 +67,7 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
   verifySecurityQuestions() {
     const answerToSecurityQuestion1 = this.form.controls['answerToSecurityQuestion1'].value;
     const answerToSecurityQuestion2 = this.form.controls['answerToSecurityQuestion2'].value;
-    const answerToSecurityQuestion3 = this.form.controls['answerToSecurityQuestion23'].value;
+    const answerToSecurityQuestion3 = this.form.controls['answerToSecurityQuestion3'].value;
 
     console.log(answerToSecurityQuestion1);
     console.log(answerToSecurityQuestion2);
