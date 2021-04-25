@@ -18,7 +18,7 @@ import { SecurityQuestion } from 'src/app/shared/security-question.interface';
   styleUrls: ['./verify-security-questions-form.component.css']
 })
 export class VerifySecurityQuestionsFormComponent implements OnInit {
-  selectedSecurityQuestions: SecurityQuestion
+  selectedSecurityQuestions: SecurityQuestion;
   question1: string;
   question2: string;
   question3: string;

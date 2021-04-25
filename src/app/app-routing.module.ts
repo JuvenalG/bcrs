@@ -26,8 +26,10 @@ import { SecurityQuestionDetailsComponent } from "./pages/security-question-deta
 import { ErrorComponent } from './pages/error/error.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
-import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { AboutComponent } from './pages/about/about.component';
+import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify-username-form.component';
+import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-password-form.component';
+
 
 
 
@@ -86,6 +88,14 @@ const routes: Routes = [
         component: VerifySecurityQuestionsFormComponent
       },
       {
+        path: 'reset-password',
+        component: ResetPasswordFormComponent
+      },
+      {
+        path: 'forgot',
+        component: VerifyUsernameFormComponent
+      },
+      {
         path: 'not-found',
         component: NotFoundComponent
       },
@@ -93,10 +103,6 @@ const routes: Routes = [
         path: 'error',
         component: ErrorComponent
       },
-      {
-        path: 'reset-password',
-        component: ResetPasswordComponent
-      }
     ]
   },
   {

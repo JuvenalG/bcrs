@@ -180,6 +180,7 @@ router.get('/verify/users/:userName', async (req, res) => {
       if (err)
       {
         console.log(err);
+
         const verifyUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
         res.status(500).send(verifyUserMongodbErrorResponse.toObject());
       }
@@ -187,7 +188,7 @@ router.get('/verify/users/:userName', async (req, res) => {
         if (user) {
           console.log(user);
           const verifyUserResponse = new BaseResponse('200', 'Query successful', user);
-          res.status(500).send(verifyUserResponse.toObject());
+          res.status(200).send(verifyUserResponse.toObject());
         } else
         {
           console.log('Invalid username');
