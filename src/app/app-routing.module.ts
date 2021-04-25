@@ -29,6 +29,7 @@ import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-qu
 import { AboutComponent } from './pages/about/about.component';
 import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify-username-form.component';
 import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-password-form.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 
 
@@ -71,6 +72,10 @@ const routes: Routes = [
       {
         path: 'about',
         component: AboutComponent
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
       },
     ],
     canActivate: [AuthGuard]
