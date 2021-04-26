@@ -22,7 +22,7 @@ import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component'
 import { SigninComponent } from './pages/signin/signin.component';
 import { AuthGuard } from './shared/auth.guard';
 import { SecurityQuestionDetailsComponent } from "./pages/security-question-details/security-question-details.component";
-import { ErrorComponent } from './pages/error/error.component';
+
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -102,10 +102,6 @@ const routes: Routes = [
       {
         path: 'not-found',
         component: NotFoundComponent
-      },
-      {
-        path: 'error',
-        component: ErrorComponent
       },
       {
         path: 'register',

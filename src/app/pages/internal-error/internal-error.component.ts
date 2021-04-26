@@ -1,3 +1,11 @@
+/**
+ * Title: internal-error.component.ts
+ * Author: Professor Krasso
+ * Date: 26 April 2021
+ * Modified By: Juvenal Gonzalez
+ * Description: main component for internal error
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
