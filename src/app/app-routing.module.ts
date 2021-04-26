@@ -9,7 +9,6 @@
 */
 
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
-import { SecurityQuestion } from './shared/security-question.interface';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
@@ -31,7 +30,7 @@ import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify
 import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-password-form.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { RegisterComponent } from './pages/register/register.component';
-
+import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 
 
 //These are routes which will load the corresponding component based on the URL path.
@@ -111,6 +110,10 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent
+      },
+      {
+        path: 'internal-error',
+        component: InternalErrorComponent
       },
     ]
   },

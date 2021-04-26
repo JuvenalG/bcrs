@@ -8,10 +8,10 @@
 
 <div fxLayout="column">
   <!-- navigation -->
-  <nav fxFlex>
-    <mat-toolbar color="primary">
+  <nav fxFlex >
+    <mat-toolbar color="primary" fxFlex="100">
       <!-- navbar container -->
-      <div class="navbar-container">
+      <div class="navbar-container"  style="position:fixed; right: 0;">
         <!-- logo -->
         <button class="logo" mat-button>Service Repair</button>
         <button class="navbar-link" routerLink="/" mat-button>
@@ -34,7 +34,7 @@
           <button mat-menu-item routerLink="/roles">Role Configuration</button>
           <button mat-menu-item (click)="signOut()">Log Out</button>
         </mat-menu>
-      </div>
+    </div>
     </mat-toolbar>
   </nav>
 

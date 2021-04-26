@@ -48,6 +48,7 @@ import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-pa
 import { ContactComponent } from './pages/contact/contact.component';
 import { MatSelectModule } from '@angular/material/select';
 import { RegisterComponent } from './pages/register/register.component';
+import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { RegisterComponent } from './pages/register/register.component';
     ResetPasswordFormComponent,
     ContactComponent,
     RegisterComponent,
+    InternalErrorComponent,
 
 
 

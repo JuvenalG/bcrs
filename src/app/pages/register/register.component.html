@@ -1,8 +1,17 @@
+<!--
+ * Title: register.component.html
+ * Author: Professor Krasso
+ * Date: 26 April 2021
+ * Modified By: Juvenal Gonzalez
+ * Description: hyperlink markup for register component
+-->
+
+
 <div fxLayout ="column" style='margin-top: 8%;'> <!--OUTER COLUMN-->
   <mat-card fxFlex style="width: 65%; margin-left: 18%; margin-top: 5%;" class="mat-elevation-z8"> <!--OUTER MAT CARD-->
     <mat-card-title style="text-align: center; font-weight: lighter;"> Account Registration  </mat-card-title>
 
-     <mat-card *ngIf='errorMessage' class="mat-elevation-z0" style="width: 75%;"><!--APPEARS IF THER IS AN ERROR MESSAGE-->
+     <mat-card *ngIf='errorMessage' class="mat-elevation-z0" style="width: 75%;"><!--APPEARS IF THERE IS AN ERROR MESSAGE-->
       <mat-card-content>
           <div class="msg-error" style="font-weight: lighter;">
             {{errorMessage}
@@ -13,7 +22,7 @@
 
     <form id="regForm" [formGroup]="registrationForm"> <!--REGISTRATION FORM-->
       <mat-card-content fxLayout='column' fxLayoutGap='10px'> <!--MAT CARD COLUMN-->
-          <mat-horizontal-stepper #stepper> <!--STEPPER-->
+          <mat-horizontal-stepper #stepper> <!--STEPPER-->                      <!--Calls the designated stepper-->
              <mat-step fxFlex formGroupName='contactInformation' [stepControl]="registrationForm.get('contactInformation')"> <!--STEP 1 CONTACTS-->
               <ng-template matStepLabel>Contact Information</ng-template>
 
@@ -63,7 +72,7 @@
                       <mat-list-item>
                           <mat-form-field fxFlex>
                             <mat-select formControlName="securityQuestion1" placeholder='Security question'>
-                                <mat-option *ngFor='let question of securityQuestions' [value]="question.text">
+                                <mat-option *ngFor='let question of securityQuestions' [value]="question.text"> <!--Loops through securityQuestions with question as the index-->
                                     {{question.text}}
                                 </mat-option>
                             </mat-select>
