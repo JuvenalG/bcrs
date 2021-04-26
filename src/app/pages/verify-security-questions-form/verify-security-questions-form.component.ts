@@ -24,6 +24,7 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
   question3: string;
   username: string;
   form: FormGroup;
+  errorMessage: string;
 
   /**
    *
@@ -67,7 +68,7 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
   verifySecurityQuestions() {
     const answerToSecurityQuestion1 = this.form.controls['answerToSecurityQuestion1'].value;
     const answerToSecurityQuestion2 = this.form.controls['answerToSecurityQuestion2'].value;
-    const answerToSecurityQuestion3 = this.form.controls['answerToSecurityQuestion23'].value;
+    const answerToSecurityQuestion3 = this.form.controls['answerToSecurityQuestion3'].value;
 
     console.log(answerToSecurityQuestion1);
     console.log(answerToSecurityQuestion2);
@@ -89,7 +90,8 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
         //route to forgot password page
         this.router.navigate(['/session/reset-password'], { queryParams: { isAuthenticated: 'true', username: this.username }, skipLocationChange: true });
       } else {
-        console.log('Unable to verify security question answers.')
+        console.log('Unable to verify security question answers.');
+        this.errorMessage = "The security questions were not answered correctly"
       }
     });
   }

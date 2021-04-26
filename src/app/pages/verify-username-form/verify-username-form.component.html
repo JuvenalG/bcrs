@@ -26,8 +26,9 @@
     <br /><br />
 
     <!-- username form -->
-    <form [formGroup]="form" (ngSubmit)="validateUsername()" #usernameForm>
+    <form [formGroup]="form" (ngSubmit)="validateUsername();" #usernameForm>
     <mat-card-content fxLayout="column">
+      <small style="color: red;" *ngIf="errorMessage"> {{ errorMessage }}<br /></small>
       <mat-form-field fxFlex>
       <input matInput [formControl]="form.controls['username']" placeholder="Username">
       </mat-form-field>

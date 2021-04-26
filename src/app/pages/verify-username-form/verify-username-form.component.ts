@@ -22,6 +22,7 @@ import { Router } from '@angular/router';
 export class VerifyUsernameFormComponent implements OnInit {
 
   form: FormGroup;
+  errorMessage: string;
 
   /**
    *
@@ -54,6 +55,7 @@ export class VerifyUsernameFormComponent implements OnInit {
       }
     }, err => {
       console.log(err);
+      this.errorMessage = "Please enter a valid username"
     })
   }
 

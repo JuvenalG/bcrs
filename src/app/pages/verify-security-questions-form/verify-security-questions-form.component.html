@@ -22,6 +22,7 @@
   <mat-toolbar-row></mat-toolbar-row>
 </mat-toolbar>
 
+<br /><br />
 <div fxLayout="row wrap" fxLayoutAlign="center start">
   <div fxFlex.gt-sm="55" fxFlex="100">
     <mat-card-title
@@ -40,10 +41,11 @@
 
       *ngIf="selectedSecurityQuestions"
       [formGroup]="form"
-      (ngSubmit)="verifySecurityQuestions()"
+      (ngSubmit)="verifySecurityQuestions(); usernameForm.reset() "
       #usernameForm
     >
       <mat-card-content fxLayout="column">
+        <small style="color: red;" *ngIf="errorMessage"> {{ errorMessage }}<br /></small>
         <mat-list>
           <mat-list-item>
             {{ question1 }} &nbsp; &nbsp;
@@ -82,7 +84,7 @@
         <br />
 
         <div fxFlex fxLayoutAlign="end">
-          <button mat-raised-button color="accent" routerLink="/ession/forgot" style="padding-right: 20px;">Back</button>
+          <button mat-raised-button color="accent" routerLink="/session/forgot" style="margin-right: 20px;">Back</button>
           <button mat-raised-button color="accent">Submit</button>
         </div>
       </mat-card-content>

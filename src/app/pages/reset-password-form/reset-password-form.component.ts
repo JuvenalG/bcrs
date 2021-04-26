@@ -44,7 +44,7 @@ export class ResetPasswordFormComponent implements OnInit {
     */
   ngOnInit() {
     this.form = this.fb.group({
-      password: [null, Validators.compose([Validators.required])]
+      password: [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]+$')])]
     });
   }
 
@@ -54,7 +54,7 @@ export class ResetPasswordFormComponent implements OnInit {
    */
   resetPassword() {
     this.http.post('/api/session/users/' + this.username + '/reset-password', {
-      password: this.form.controls['passwords'].value
+      password: this.form.controls['password'].value
     }).subscribe(res => {
       this.cookieService.set('sessionuser', this.username, 1);
       this.router.navigate(['/']);
