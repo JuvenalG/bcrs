@@ -22,7 +22,7 @@ let userSchema = new Schema({
   address: { type: String },
   email: { type: String },
   isDisabled: { type: Boolean, default: false },
-  role: UserRoleSchema,
+  role: UserRoleSchema,       // !!----BRACKETS allow an array of objects---!!
   selectedSecurityQuestions: [SelectedSecurityQuestionSchema],
   dateCreated: { type: Date, default: new Date() },
   dateModified: { type: Date }

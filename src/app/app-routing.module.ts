@@ -30,7 +30,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify-username-form.component';
 import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-password-form.component';
 import { ContactComponent } from './pages/contact/contact.component';
-
+import { RegisterComponent } from './pages/register/register.component';
 
 
 
@@ -107,6 +107,10 @@ const routes: Routes = [
       {
         path: 'error',
         component: ErrorComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       },
     ]
   },

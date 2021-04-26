@@ -46,6 +46,9 @@ import { AboutComponent } from './pages/about/about.component';
 import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify-username-form.component';
 import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-password-form.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { MatSelectModule } from '@angular/material/select';
+import { RegisterComponent } from './pages/register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -67,7 +70,9 @@ import { ContactComponent } from './pages/contact/contact.component';
     AboutComponent,
     VerifyUsernameFormComponent,
     ResetPasswordFormComponent,
-    ContactComponent
+    ContactComponent,
+    RegisterComponent,
+
 
 
   ],
@@ -90,6 +95,7 @@ import { ContactComponent } from './pages/contact/contact.component';
     MatInputModule,
     MatListModule,
     MatStepperModule,
+    MatSelectModule
   ],
   providers: [
     {
