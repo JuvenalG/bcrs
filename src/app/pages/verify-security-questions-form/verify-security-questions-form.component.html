@@ -38,14 +38,17 @@
     Call the verifySecurityQuestions() on submit
     -->
     <form
-
       *ngIf="selectedSecurityQuestions"
       [formGroup]="form"
-      (ngSubmit)="verifySecurityQuestions(); usernameForm.reset() "
+      (ngSubmit)="verifySecurityQuestions(); usernameForm.reset()"
       #usernameForm
     >
+      <!-- Show an error if they get it wrong -->
       <mat-card-content fxLayout="column">
-        <small style="color: red;" *ngIf="errorMessage"> {{ errorMessage }}<br /></small>
+        <small style="color: red" *ngIf="errorMessage">
+          {{ errorMessage }}<br
+        /></small>
+        <!-- List the questions and answers -->
         <mat-list>
           <mat-list-item>
             {{ question1 }} &nbsp; &nbsp;
@@ -84,7 +87,14 @@
         <br />
 
         <div fxFlex fxLayoutAlign="end">
-          <button mat-raised-button color="accent" routerLink="/session/forgot" style="margin-right: 20px;">Back</button>
+          <button
+            mat-raised-button
+            color="accent"
+            routerLink="/session/forgot"
+            style="margin-right: 20px"
+          >
+            Back
+          </button>
           <button mat-raised-button color="accent">Submit</button>
         </div>
       </mat-card-content>
