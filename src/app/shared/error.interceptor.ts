@@ -39,7 +39,7 @@ export class ErrorInterceptor implements HttpInterceptor {
        * Handle 500 errors
        */
       if ([500].indexOf(err.status) !== -1) {
-        this.router.navigate(['/session/error']);
+        this.router.navigate(['/session/internal-error']);
       }
 
       //Otherwise, catch the error and throw
