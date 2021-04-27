@@ -7,3 +7,7 @@
 ; Description: Create User component.css file
 ; ==============================
 */
+.user-create {
+	min-width: 80%;
+	margin: 40px auto;
+}

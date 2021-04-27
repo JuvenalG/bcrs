@@ -35,6 +35,8 @@
     font-weight: lighter;
     padding-left: 100px;
     letter-spacing: 3px;
+    white-space: normal;
+    height: auto;
   }
 
   .bu-link {

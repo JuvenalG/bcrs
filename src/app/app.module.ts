@@ -48,6 +48,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { MatSelectModule } from '@angular/material/select';
 import { RegisterComponent } from './pages/register/register.component';
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -95,7 +96,8 @@ import { InternalErrorComponent } from './pages/internal-error/internal-error.co
     MatInputModule,
     MatListModule,
     MatStepperModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSidenavModule
   ],
   providers: [
     {
