@@ -40,6 +40,10 @@ import { MatInputModule } from '@angular/material/input';
 import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
 import { MatListModule } from '@angular/material/list';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 318afb452e60289cafa385c47f0f30be5a628472
 import { MatStepperModule } from '@angular/material/stepper';
 import { AboutComponent } from './pages/about/about.component';
 import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify-username-form.component';
