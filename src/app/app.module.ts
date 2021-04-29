@@ -49,6 +49,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { RegisterComponent } from './pages/register/register.component';
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { ChartModule } from 'primeng/chart';
 
 
 @NgModule({
@@ -97,7 +98,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatListModule,
     MatStepperModule,
     MatSelectModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ChartModule
   ],
   providers: [
     {
