@@ -3,18 +3,17 @@
 ; Title: role-api.js
 ; Author: Professor Krasso
 ; Date: 29 April 2021
-; Modified By: Brooklyn Hairston
+; Modified By: Brooklyn Hairston, Dan Ross
 ; Description: Role router
 ; ==============================
 */
 
 //require statements
-const express = require('express');
-const Role = require('../models/role');
-const User = require('../models/user');
-const ErrorResponse = require('../services/error-response');
-const BaseResponse = require ('../services/base-response');
-
+const express = require("express");
+const Role = require("../models/role");
+const User = require("../models/user");
+const ErrorResponse = require("../services/error-response");
+const BaseResponse = require("../services/base-response");
 const router = express.Router();
 
 /**
@@ -23,32 +22,37 @@ const router = express.Router();
  * @description Queries the roles collection to for all roles where isDisabled is set to false
  */
 
-router.get('/', async (req, res) => {
-  try
-  {
+router.get("/", async (req, res) => {
+  try {
     Role.find({})
-    .where('isDisabled')
-    .equals(false)
-    .exec(function(err, roles)
-    {
-      if (err)
-      {
-        console.log(err);
-        const findAllRolesMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
-        res.status(500).send(findAllRolesMongodbErrorResponse.toObject());
-      }
-      else
-      {
-        console.log(roles);
-        const findAllRoleResponse = new BaseResponse('200', 'Query successful', roles);
-        res.json(findAllRoleResponse.toObject());
-      }
-    })
-  }
-  catch (e)
-  {
+      .where("isDisabled")
+      .equals(false)
+      .exec(function (err, roles) {
+        if (err) {
+          console.log(err);
+          const findAllRolesMongodbErrorResponse = new ErrorResponse(
+            "500",
+            "Internal server error",
+            err
+          );
+          res.status(500).send(findAllRolesMongodbErrorResponse.toObject());
+        } else {
+          console.log(roles);
+          const findAllRoleResponse = new BaseResponse(
+            "200",
+            "Query successful",
+            roles
+          );
+          res.json(findAllRoleResponse.toObject());
+        }
+      });
+  } catch (e) {
     console.log(e);
-    const findAllRolesCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e.message);
+    const findAllRolesCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
     res.status(500).send(findAllRolesCatchErrorResponse.toObject());
   }
 });
@@ -59,46 +63,94 @@ router.get('/', async (req, res) => {
  * @description Queries the roles collection by the roleId and updates the record
  */
 
-router.put('/:roleId', async(req, res) => {
-  try
-  {
-    Role.findOne({'_id': req.params.roleId}, function(err, role)
-    {
-      if (err)
-      {
+router.put("/:roleId", async (req, res) => {
+  try {
+    Role.findOne({ _id: req.params.roleId }, function (err, role) {
+      if (err) {
         console.log(err);
-        const updateRoleMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+        const updateRoleMongodbErrorResponse = new ErrorResponse(
+          "500",
+          "Internal server error",
+          err
+        );
         res.status(500).send(updateRoleMongodbErrorResponse.toObject());
-      }
-      else
-      {
+      } else {
         console.log(role);
         role.set({
-          text: req.body.text
+          text: req.body.text,
         });
 
-        role.save(function(err, updatedRole)
-        {
-          if (err)
-          {
+        role.save(function (err, updatedRole) {
+          if (err) {
             console.log(err);
-            const updatedRoleMongodbErrorResponse = new ErrorResponse('500', 'internal server error', err);
+            const updatedRoleMongodbErrorResponse = new ErrorResponse(
+              "500",
+              "internal server error",
+              err
+            );
             res.status(500).send(updatedRoleMongodbErrorResponse.toObject());
-          }
-          else
-          {
+          } else {
             console.log(updatedRole);
-            const updatedRoleResponse = new BaseResponse('200', 'Query successful', updatedRole);
+            const updatedRoleResponse = new BaseResponse(
+              "200",
+              "Query successful",
+              updatedRole
+            );
             res.json(updatedRoleResponse.toObject());
           }
-        })
+        });
       }
-    })
-  }
-  catch (e)
-  {
+    });
+  } catch (e) {
     console.log(e);
-    const updatedRoleCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e.message);
+    const updatedRoleCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
     res.status(500).send(updatedRoleCatchErrorResponse.toObject());
   }
 });
+
+/**
+ * CreateRole
+ * @returns A new role record or null
+ * @description Creates and adds a new role
+ */
+ router.post("/", async (req, res) => {
+  try {
+    const newRole = {
+      text: req.body.text,
+    };
+
+    Role.create(newRole, function (err, role) {
+      if (err) {
+        console.log(err);
+        const createRoleMongodbErrorResponse = new ErrorResponse(
+          "500",
+          "Internal server error",
+          err
+        );
+        res.status(500).send(createRoleMongodbErrorResponse.toObject());
+      } else {
+        console.log(role);
+        const createRoleResponse = new BaseResponse(
+          "200",
+          "Query Successful",
+          role
+        );
+        res.json(createRoleResponse.toObject());
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const createRoleCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(createRoleCatchErrorResponse.toObject());
+  }
+});
+
+module.exports = router;
