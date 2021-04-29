@@ -102,3 +102,6 @@ router.put('/:roleId', async(req, res) => {
     res.status(500).send(updatedRoleCatchErrorResponse.toObject());
   }
 });
+
+
+module.exports = router;
