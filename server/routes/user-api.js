@@ -14,7 +14,7 @@ const User = require("../models/user");
 const BaseResponse = require("../services/base-response");
 const ErrorResponse = require("../services/error-response");
 const RoleSchema = require("../schemas/user-role");
-const bcrypt = require('bcrypt')
+const bcrypt = require("bcrypt");
 
 //create router
 const router = express.Router();
@@ -26,23 +26,37 @@ const saltRounds = 10;
  * @returns all users
  */
 
-router.get('/', async (req, res) => {
-  try{
-    User.find({}).where('isDisabled').equals(false).exec(function(err,users){
-      if(err) {
+router.get("/", async (req, res) => {
+  try {
+    User.find({})
+      .where("isDisabled")
+      .equals(false)
+      .exec(function (err, users) {
+        if (err) {
           console.log(err);
-          const findAllMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err);
+          const findAllMongodbErrorResponse = new ErrorResponse(
+            500,
+            "Internal server error",
+            err
+          );
           res.status(500).send(findAllMongodbErrorResponse.toObject());
-      } else {
+        } else {
           console.log(users);
-          const findAllUsersResponse = new BaseResponse(200,"Query Successful", users);
+          const findAllUsersResponse = new BaseResponse(
+            200,
+            "Query Successful",
+            users
+          );
           res.json(findAllUsersResponse.toObject());
-      }
-    });
-  }
-  catch(e){
-      const findAllCatchErrorResponse = new ErrorResponse(500, "Internal Server Error", e.message);
-      res.status(500).send(findAllCatchErrorResponse.toObject());
+        }
+      });
+  } catch (e) {
+    const findAllCatchErrorResponse = new ErrorResponse(
+      500,
+      "Internal Server Error",
+      e.message
+    );
+    res.status(500).send(findAllCatchErrorResponse.toObject());
   }
 });
 
@@ -52,9 +66,9 @@ router.get('/', async (req, res) => {
  * @returns User document or null
  */
 
- router.get("/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    User.findOne({ '_id': req.params.id }, function (err, user) {
+    User.findOne({ _id: req.params.id }, function (err, user) {
       if (err) {
         console.log(err);
         const findByIdMongodbErrorResponse = new ErrorResponse(
@@ -90,47 +104,55 @@ router.get('/', async (req, res) => {
  * @description adds a new user object to the users collection with a post request or returns an error message
  */
 
- router.post('/', async(req, res) => {
-  try
-  {
+router.post("/", async (req, res) => {
+  try {
     // salt and hash the password
-      let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
-      standardRole = {
-          role: 'standard'
+    let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+    standardRole = {
+      role: "standard",
+    };
+
+    //user object
+    let newUser = {
+      userName: req.body.userName,
+      password: hashedPassword,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      phoneNumber: req.body.phoneNumber,
+      address: req.body.address,
+      email: req.body.email,
+      role: standardRole,
+    };
+
+    User.create(newUser, function (err, user) {
+      if (err) {
+        console.log(err);
+        const createUserMongodbErrorResponse = new ErrorResponse(
+          500,
+          "Internal server error",
+          err
+        );
+        res.status(500).send(createUserMongodbErrorResponse.toObject());
+      } else {
+        console.log(user);
+        const createUserResponse = new BaseResponse(
+          200,
+          "Query successful",
+          user
+        );
+        res.json(createUserResponse.toObject());
       }
-
-      //user object
-      let newUser = {
-          userName: req.body.userName,
-          password: hashedPassword,
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          phoneNumber: req.body.phoneNumber,
-          address: req.body.address,
-          email: req.body.email,
-          role: standardRole
-      };
-
-      User.create(newUser, function(err, user) {
-          if (err) {
-              console.log(err);
-              const createUserMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err);
-              res.status(500).send(createUserMongodbErrorResponse.toObject());
-          }
-          else
-          {
-              console.log(user);
-              const createUserResponse = new BaseResponse(200, 'Query successful', user);
-              res.json(createUserResponse.toObject());
-          }
-      })
+    });
+  } catch (e) {
+    console.log(e);
+    const createUserCatchErrorResponse = new ErrorResponse(
+      500,
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(createUserCatchErrorResponse.toObject());
   }
-  catch (e) {
-      console.log(e);
-      const createUserCatchErrorResponse = new ErrorResponse(500, 'Internal server error', e.message);
-      res.status(500).send(createUserCatchErrorResponse.toObject());
-  }
-})
+});
 
 /**
  * UpdateUser
@@ -139,47 +161,59 @@ router.get('/', async (req, res) => {
  * Inserts new updated user into postion of old user
  */
 
-  router.put('/:id', async (req,res) => {
-      try{
-          User.findOne({'_id': req.params.id}, function (err,user){
-              if(err) {
-                  console.log(err);
-                  const updateUserMongodbErrorResponse = new ErrorResponse(500, "Internal Server Error", err);
-                  res.status(500).send(updateUserMongodbErrorResponse.toObject());
-              }
-              else{
-                  console.log(user);
+router.put("/:id", async (req, res) => {
+  try {
+    User.findOne({ _id: req.params.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        const updateUserMongodbErrorResponse = new ErrorResponse(
+          500,
+          "Internal Server Error",
+          err
+        );
+        res.status(500).send(updateUserMongodbErrorResponse.toObject());
+      } else {
+        console.log(user);
 
-                  user.set({
-                      firstName: req.body.firstName,
-                      lastName: req.body.lastName,
-                      phoneNumber: req.body.phoneNumber,
-                      address: req.body.address,
-                      email: req.body.email
-                  })
+        user.set({
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          phoneNumber: req.body.phoneNumber,
+          address: req.body.address,
+          email: req.body.email,
+        });
 
-                  user.save(function(err, savedUser){
-                      if(err) {
-                          console.log(err);
-                          const savedUserMongodbErrorResponse = new ErrorResponse(500, "interal sever error(.save function)", err);
-                          res.status(500).send(savedUserMongodbErrorResponse.toObject());
-                      } else {
-                          console.log(savedUser);
-                          const savedUserResponse = new BaseResponse(200,'Query Successful', savedUser);
-                          res.json(savedUserResponse.toObject());
-                      }
-                  })
-              }
-          })
+        user.save(function (err, savedUser) {
+          if (err) {
+            console.log(err);
+            const savedUserMongodbErrorResponse = new ErrorResponse(
+              500,
+              "interal sever error(.save function)",
+              err
+            );
+            res.status(500).send(savedUserMongodbErrorResponse.toObject());
+          } else {
+            console.log(savedUser);
+            const savedUserResponse = new BaseResponse(
+              200,
+              "Query Successful",
+              savedUser
+            );
+            res.json(savedUserResponse.toObject());
+          }
+        });
       }
-      catch(e)
-      {
-        console.log(e);
-        const updateUserCatchErrorResponse = new ErrorResponse(500, 'Internal Server Error', e.message);
-        res.json(updateUserCatchErrorResponse.toObject());
-      }
-  });
-
+    });
+  } catch (e) {
+    console.log(e);
+    const updateUserCatchErrorResponse = new ErrorResponse(
+      500,
+      "Internal Server Error",
+      e.message
+    );
+    res.json(updateUserCatchErrorResponse.toObject());
+  }
+});
 
 /**
  * API deleteUser
@@ -188,7 +222,7 @@ router.get('/', async (req, res) => {
  * This will set the users field isDisabled to true, rather than actually deleting.
  */
 
- router.delete("/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     User.findOne({ _id: req.params.id }, function (err, user) {
       if (err) {
@@ -242,40 +276,89 @@ router.get('/', async (req, res) => {
  * @returns The selected security questions for the user
  * @description Queries the database using the userName and returns the selected security questions for that userName
  */
-router.get('/:userName/security-questions', async (req, res) => {
-  try
-  {
-    User.findOne({'userName': req.params.userName}, function(err, user)
-    {
-      if (err)
-      {
+router.get("/:userName/security-questions", async (req, res) => {
+  try {
+    User.findOne({ userName: req.params.userName }, function (err, user) {
+      if (err) {
         console.log(err);
-        const findSelectedSecurityQuestionsMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
-        res.status(500).send(findSelectedSecurityQuestionsMongodbErrorResponse.toObject());
-      }
-      else
-      if (user)
-      {
+        const findSelectedSecurityQuestionsMongodbErrorResponse = new ErrorResponse(
+          "500",
+          "Internal server error",
+          err
+        );
+        res
+          .status(500)
+          .send(findSelectedSecurityQuestionsMongodbErrorResponse.toObject());
+      } else if (user) {
         console.log(user);
-        const findSelectedSecurityQuestionsResponse = new BaseResponse('200', 'Query successful', user.selectedSecurityQuestions);
+        const findSelectedSecurityQuestionsResponse = new BaseResponse(
+          "200",
+          "Query successful",
+          user.selectedSecurityQuestions
+        );
         res.json(findSelectedSecurityQuestionsResponse.toObject());
-      }
-      else
-      {
-        console.log('Invalid username');
-        const invalidUserNameResponse = new ErrorResponse('401', 'Username is invalid', null)
+      } else {
+        console.log("Invalid username");
+        const invalidUserNameResponse = new ErrorResponse(
+          "401",
+          "Username is invalid",
+          null
+        );
         res.status(401).send(invalidUserNameResponse.toObject());
       }
-    })
-  }
-  catch (e)
-  {
+    });
+  } catch (e) {
     console.log(e);
-    const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e);
-    res.status(500).send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
+    const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e
+    );
+    res
+      .status(500)
+      .send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
   }
 });
 
 
+/**
+ * @param  {userName/role"} "/
+ * @param  {} async(req
+ * @param  {} res
+ * @returns role assigned to user passed in
+ */
+router.get("/:userName/role", async (req, res) => {
+  try {
+    User.findOneAndDelete(
+      { userName: req.params.userName },
+      function (err, user) {
+        if (err) {
+          console.log(err);
+          const findUserRoleMongodbErrorResponse = new ErrorResponse(
+            "500",
+            "Internal server error"
+          );
+          res.status(500).send(findUserRoleMongodbErrorResponse.toObject());
+        } else {
+          console.log(user);
+          const findUserRoleResponse = new BaseResponse(
+            "200",
+            "Query successful",
+            user.role
+          );
+          res.json(findUserRoleResponse.toObject());
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+    const findUserRoleCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(findUserRoleCatchErrorResponse.toObject());
+  }
+});
 
 module.exports = router;

@@ -50,6 +50,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ChartModule } from 'primeng/chart';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { ChartModule } from 'primeng/chart';
     ContactComponent,
     RegisterComponent,
     InternalErrorComponent,
+    RoleCreateComponent,
 
 
 

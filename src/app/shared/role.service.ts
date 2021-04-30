@@ -45,5 +45,16 @@ export class RoleService {
     })
   }
 
+ /**
+  *
+  * @param role
+  * @returns new role
+  */
+  createRole(role: Role): Observable<any> {
+    return this.http.post('/api/roles', {
+      text: role.text
+    })
+  }
+
 
 }
