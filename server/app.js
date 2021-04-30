@@ -3,7 +3,7 @@
 ; Title: app.js
 ; Author: Dan Ross
 ; Date: 18 April 2021
-; Modified By: Dan Ross
+; Modified By: Dan Ross, Brooklyn Hairston
 ; Description: This is our main app.js file
 ; ==============================
 */
@@ -25,6 +25,7 @@ const UserApi = require('./routes/user-api');
 const SecurityQuestionApi = require('./routes/security-question-api');
 const SessionApi = require('./routes/session-api');
 const RoleApi = require('./routes/role-api');
+const InvoiceApi = require('./routes/invoice-api');
 
 
 /**
@@ -65,6 +66,7 @@ app.use('/api/users', UserApi);
 app.use('/api/security-questions', SecurityQuestionApi);
 app.use('/api/session', SessionApi);
 app.use('/api/roles', RoleApi);
+app.use('/api/invoices', InvoiceApi);
 /**
  * Create and start server
  */
