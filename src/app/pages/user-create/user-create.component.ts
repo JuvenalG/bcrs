@@ -10,7 +10,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from './../../shared/user.interface';
+import { User } from '../../shared/interfaces/user.interface';
 import { UserService } from './../../shared/user.service';
 
 @Component({
@@ -63,7 +63,7 @@ export class UserCreateComponent implements OnInit {
   }
 
   /**
-   * This will cancel the creation of the new user and go back to the user list page.                         
+   * This will cancel the creation of the new user and go back to the user list page.
    */
   cancel() {
     this.router.navigate(['/users'])

@@ -30,6 +30,8 @@ import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-pa
 import { ContactComponent } from './pages/contact/contact.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
 
 
 //These are routes which will load the corresponding component based on the URL path.
@@ -74,6 +76,14 @@ const routes: Routes = [
       {
         path: 'contact',
         component: ContactComponent
+      },
+      {
+        path: 'roles/:roleId',
+        component: RoleDetailsComponent
+      },
+      {
+        path: 'roles/create/new',
+        component: RoleCreateComponent
       },
     ],
     canActivate: [AuthGuard]

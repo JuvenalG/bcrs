@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SecurityQuestionService } from './../../shared/security-question.service';
 import { MatDialog } from '@angular/material/dialog';
-import { SecurityQuestion } from './../../shared/security-question.interface';
+import { SecurityQuestion } from '../../shared/interfaces/security-question.interface';
 
 
 @Component({

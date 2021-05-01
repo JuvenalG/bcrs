@@ -10,7 +10,7 @@
 
 //import statements
 import { Injectable } from '@angular/core';
-import { Role } from './role.interface';
+import { Role } from './interfaces/role.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -47,7 +47,7 @@ export class RoleService {
    * @param role
    * @returns An updated Role
    */
-  updateRoles(roleId: string, role: Role): Observable<any> {
+  updateRole(roleId: string, role: Role): Observable<any> {
     return this.http.put('/api/roles/' + roleId, {
       text: role.text
     })

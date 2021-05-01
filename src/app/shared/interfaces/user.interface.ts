@@ -12,6 +12,7 @@
  * Export so that any file that wants to use this interface just needs to import it.
  */
 export interface User {
+  role: string;
   _id: string;
   userName: string;
   password: string;

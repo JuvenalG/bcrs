@@ -1,0 +1,32 @@
+<!-- fxLayout -->
+<div fxLayout="column">
+  <mat-card-title>Role Details</mat-card-title>
+  <br />
+
+  <!-- role update form -->
+  <form [formGroup]="form" (ngSubmit)="save()" #roleForm>
+    <!-- mat card content -->
+    <mat-card-content>
+      <!-- fxLayout -->
+      <div fxLayout="column" fxLayoutGap="10px">
+        <mat-form-field>
+          <input type="text" matInput [formControl]="form.controls['text']" placeholder="Role" />
+        </mat-form-field>
+      </div>
+      <!-- end fxLayout -->
+    </mat-card-content>
+    <!-- end mat card content -->
+
+    <br />
+    <!-- buttons -->
+    <mat-card-actions align="end">
+      <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+      <button mat-raised-button color="accent">Submit</button>
+    </mat-card-actions>
+    <!-- end buttons -->
+
+  </form>
+  <!-- end role update form -->
+
+</div>
+<!-- end fxLayout -->

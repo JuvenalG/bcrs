@@ -13,7 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { DeleteRecordDialogComponent } from './../../shared/delete-record-dialog/delete-record-dialog.component';
 import { UserService } from './../../shared/user.service';
-import { User } from './../../shared/user.interface';
+import { User } from '../../shared/interfaces/user.interface';
 
 
 @Component({

@@ -8,7 +8,7 @@
 
 
 import { Component, OnInit } from '@angular/core';
-import { SecurityQuestion } from 'src/app/shared/security-question.interface';
+import { SecurityQuestion } from 'src/app/shared/interfaces/security-question.interface';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute , Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';

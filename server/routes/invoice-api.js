@@ -10,8 +10,7 @@
 
 //require statements
 const express = require("express");
-const Role = require("../models/role");
-const User = require("../models/user");
+const Invoice = require("../models/invoice");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
 const router = express.Router();

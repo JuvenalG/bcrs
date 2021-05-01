@@ -1,4 +1,4 @@
-import { ErrorInterceptor } from './shared/error.interceptor';
+
 /*
 ; ==============================
 ; Title: app.module.ts
@@ -11,6 +11,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ErrorInterceptor } from './shared/error.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -51,6 +52,8 @@ import { InternalErrorComponent } from './pages/internal-error/internal-error.co
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ChartModule } from 'primeng/chart';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
+import { InvoiceSummaryDialogComponent } from './dialogs/invoice-summary-dialog/invoice-summary-dialog.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 
 
 @NgModule({
@@ -76,6 +79,8 @@ import { RoleCreateComponent } from './pages/role-create/role-create.component';
     RegisterComponent,
     InternalErrorComponent,
     RoleCreateComponent,
+    InvoiceSummaryDialogComponent,
+    RoleDetailsComponent
 
 
 

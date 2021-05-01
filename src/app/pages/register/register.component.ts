@@ -11,8 +11,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { SecurityQuestion } from '../../shared/security-question.interface';
+import { SecurityQuestion } from '../../shared/interfaces/security-question.interface';
 import { SecurityQuestionService } from '../../shared/security-question.service';
+
 
 @Component({
   selector: 'app-register',
