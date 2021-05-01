@@ -24,43 +24,50 @@ export class ServiceRepairService {
       {
         id: '101',
         title: 'Password Reset',
-        price: 39.99
+        price: 39.99,
+        img: './assets/reset-password-icon-29.png'
 
       },
       {
         id: '102',
         title: 'Spyware Removal',
-        price: 99.9
+        price: 99.9,
+        img: './assets/spyware-free.png'
 
       },
       {
         id: '103',
         title: 'RAM Upgrade',
-        price: 129.99
+        price: 129.99,
+        img: './assets/ram.png'
 
       },
       {
         id: '104',
         title: 'Software Installation',
-        price: 49.99
+        price: 49.99,
+        img: './assets/software-installer.png'
 
       },
       {
         id: '105',
         title: 'PC Tune-Up',
-        price: 89.99
+        price: 89.99,
+        img: './assets/pc-tuneup.png'
 
       },
       {
         id: '106',
         title: 'Keyboard Cleaning',
-        price: 45.00
+        price: 45.00,
+        img: './assets/keyboard-cleaning-2554540-.png'
 
       },
       {
         id: '107',
         title: 'Disk Clean-up',
-        price: 149.99
+        price: 149.99,
+        img: './assets/laptop-disk-cleanup-icon-free-vector.png'
 
       }
     ]

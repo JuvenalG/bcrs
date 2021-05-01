@@ -55,6 +55,7 @@ import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { InvoiceSummaryDialogComponent } from './dialogs/invoice-summary-dialog/invoice-summary-dialog.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -108,7 +109,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSelectModule,
     MatSidenavModule,
     ChartModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatGridListModule
   ],
   providers: [
     {

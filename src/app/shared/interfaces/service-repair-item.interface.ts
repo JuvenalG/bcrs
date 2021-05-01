@@ -11,4 +11,5 @@ export interface ServiceRepairItem {
   id: string;
   title: string;
   price: number;
+  img: string;
 }

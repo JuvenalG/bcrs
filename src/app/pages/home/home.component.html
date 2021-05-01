@@ -20,11 +20,23 @@
   >
     <mat-card-content>
       <!-- service repair -->
-      <div fxLayout="column">
-        <h4 fxFlex>Services</h4>
+      <h4>Services</h4>
+      <div fxLayout="row wrap">
         <!-- Loop over and display our checkboxes -->
-        <div ngModelGroup="checkGroup" *ngFor="let service of services">
+        <div
+          ngModelGroup="checkGroup"
+          *ngFor="let service of services"
+          fxFlex="25"
+          fxFlex.md="33"
+          fxFlex.sm="50"
+          fxFlex.xs="100"
+          fxLayout="column"
+          style="padding: 20px 0"
+        >
+
+
           <mat-checkbox name="{{ service.id }}" ngModel>
+            <img src="{{ service.img }}" alt=""><br>
             {{ service.title }} ({{ service.price | currency }})
           </mat-checkbox>
           <br />
