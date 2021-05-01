@@ -30,7 +30,15 @@ export class RoleService {
    * @returns All Roles
    */
   findAllRoles(): Observable<any> {
-    return this.http.get('/api.roles');
+    return this.http.get('/api/roles');
+  }
+  /**
+   * findRoleById API
+   * @param roleId
+   * @returns matching role
+   */
+  findRoleById(roleId: string): Observable<any> {
+      return this.http.get('/api/roles');
   }
 
   /**
