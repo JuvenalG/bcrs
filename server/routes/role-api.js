@@ -234,7 +234,7 @@ router.delete('/:roleId', async(req,res) => {
                       console.log(`Role , <${role.text}> is currently being used by a user and cannot be deleted`);
                       const userAlreadyInUseRespoonse = new BaseResponse('200', `<${role.text}> is currently being used by a user and cannot be deleted`, role);
                       res.json(userAlreadyInUseRespoonse.toObject());
-                    }//no user using role and successfull deletions
+                    }//no user using role and successfull deletion
                     else
                     {
                       console.log(`Role <${role.text}> is not in use and can be removed`);
