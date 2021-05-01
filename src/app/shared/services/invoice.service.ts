@@ -11,8 +11,9 @@
 //import statements
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Invoice } from '../shared/interfaces/invoice.interface';
+
 import { Observable } from 'rxjs';
+import { Invoice } from '../interfaces/invoice.interface';
 
 
 @Injectable({
