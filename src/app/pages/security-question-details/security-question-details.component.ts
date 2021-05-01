@@ -12,7 +12,7 @@ import { SecurityQuestion } from 'src/app/shared/interfaces/security-question.in
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute , Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { SecurityQuestionService } from './../../shared/security-question.service';
+import { SecurityQuestionService } from './../../shared/services/security-question.service';
 
 @Component({
   selector: 'app-security-question-details',

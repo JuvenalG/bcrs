@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Role } from 'src/app/shared/interfaces/role.interface';
-import { RoleService } from 'src/app/shared/role.service';
+import { RoleService } from 'src/app/shared/services/role.service';
 
 @Component({
   selector: 'app-role-details',

@@ -10,9 +10,10 @@
 
 //import statements
 import { Injectable } from '@angular/core';
-import { SecurityQuestion } from './interfaces/security-question.interface';
+
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { SecurityQuestion } from '../interfaces/security-question.interface';
 
 @Injectable({
   providedIn: 'root'

@@ -20,7 +20,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SigninComponent } from './pages/signin/signin.component';
-import { AuthGuard } from './shared/auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
 import { SecurityQuestionDetailsComponent } from "./pages/security-question-details/security-question-details.component";
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';

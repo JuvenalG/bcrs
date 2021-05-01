@@ -12,10 +12,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from './../../shared/user.service';
+import { UserService } from './../../shared/services/user.service';
 import { User } from '../../shared/interfaces/user.interface';
 import { Role } from 'src/app/shared/interfaces/role.interface';
-import { RoleService } from '../../shared/role.service';
+import { RoleService } from '../../shared/services/role.service';
 
 @Component({
   selector: 'app-user-details',

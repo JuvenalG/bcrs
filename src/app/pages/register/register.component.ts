@@ -12,7 +12,7 @@ import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { SecurityQuestion } from '../../shared/interfaces/security-question.interface';
-import { SecurityQuestionService } from '../../shared/security-question.service';
+import { SecurityQuestionService } from '../../shared/services/security-question.service';
 
 
 @Component({
