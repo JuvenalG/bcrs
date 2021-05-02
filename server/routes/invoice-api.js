@@ -20,7 +20,7 @@ const router = express.Router();
  * @returns
  * @description
  */
-router.get("/purchases-graph", async (req, res) => {
+ router.get("/purchases-graph", async (req, res) => {
   try {
     Invoice.aggregate(
       [
@@ -29,20 +29,20 @@ router.get("/purchases-graph", async (req, res) => {
         },
         {
           $group: {
-            _id: {
+            "_id": {
               title: "$lineItems.title",
-              price: "$lineItems.price",
+              price: "$lineItems.price"
             },
-            count: {
-              $sum: 1,
-            },
-          },
+            "count": {
+              $sum: 1
+            }
+          }
         },
         {
           $sort: {
             "_id.title": 1,
-          },
-        },
+          }
+        }
       ],
       function (err, purchaseGraph) {
         if (err) {

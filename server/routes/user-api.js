@@ -331,14 +331,15 @@ router.get("/:userName/security-questions", async (req, res) => {
  */
 router.get("/:userName/role", async (req, res) => {
   try {
-    User.findOneAndDelete(
-      { userName: req.params.userName },
+    User.findOne(
+      { "userName": req.params.userName },
       function (err, user) {
         if (err) {
           console.log(err);
           const findUserRoleMongodbErrorResponse = new ErrorResponse(
             "500",
-            "Internal server error"
+            "Internal server error",
+            err
           );
           res.status(500).send(findUserRoleMongodbErrorResponse.toObject());
         } else {
