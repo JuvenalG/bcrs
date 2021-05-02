@@ -28,7 +28,7 @@ export class InvoiceSummaryDialogComponent implements OnInit {
    * @description maps the invoice data to the invoice dialog
    */
   constructor(private dialogRef: MatDialogRef<InvoiceSummaryDialogComponent>, @Inject(MAT_DIALOG_DATA) data) {
-    this.invoice = data.invoiced;
+    this.invoice = data.invoice;
    }
 
   ngOnInit() {
