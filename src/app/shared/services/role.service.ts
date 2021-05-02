@@ -65,5 +65,24 @@ export class RoleService {
     })
   }
 
+/**
+ * deleteRole API
+ * @param roleId
+ * deletes a role from role collections
+ */
+
+  deleteRole(roleId: string): Observable<any> {
+      return this.http.delete('/api/roles/' + roleId);
+  }
+
+/**
+ * FindUserRole API
+ * @param userName
+ * @returns users role
+ */
+
+  findUserRole(userName: string): Observable<any> {
+      return this.http.get('/api/users' + userName + '/role');
+  }
 
 }

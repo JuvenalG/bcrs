@@ -32,7 +32,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
-
+import { RoleListComponent } from './pages/role-list/role-list.component'
 
 //These are routes which will load the corresponding component based on the URL path.
 const routes: Routes = [
@@ -84,6 +84,10 @@ const routes: Routes = [
       {
         path: 'roles/create/new',
         component: RoleCreateComponent
+      },
+      {
+        path: 'roles',
+        component: RoleListComponent
       },
     ],
     canActivate: [AuthGuard]

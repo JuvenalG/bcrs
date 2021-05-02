@@ -54,6 +54,7 @@ import { ChartModule } from 'primeng/chart';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { InvoiceSummaryDialogComponent } from './dialogs/invoice-summary-dialog/invoice-summary-dialog.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
     InternalErrorComponent,
     RoleCreateComponent,
     InvoiceSummaryDialogComponent,
-    RoleDetailsComponent
+    RoleDetailsComponent,
+    RoleListComponent
 
 
 
