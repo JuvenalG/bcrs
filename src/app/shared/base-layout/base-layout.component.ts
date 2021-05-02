@@ -21,14 +21,11 @@ export class BaseLayoutComponent implements OnInit {
 
   year: number = Date.now();
 
-  constructor(private cookieService: CookieService, private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  signOut() {
-    this.cookieService.deleteAll()
-    this.router.navigate(['/session/signin']);
-  }
+
 
 }
