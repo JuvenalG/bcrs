@@ -21,7 +21,6 @@ import { SecurityQuestionCreateComponent } from './pages/security-question-creat
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { AuthGuard } from './shared/guards/auth.guard';
-import { RoleGuard } from './shared/guards/role.guard';
 import { SecurityQuestionDetailsComponent } from "./pages/security-question-details/security-question-details.component";
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
@@ -34,7 +33,7 @@ import { InternalErrorComponent } from './pages/internal-error/internal-error.co
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleListComponent } from './pages/role-list/role-list.component'
-import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+
 //These are routes which will load the corresponding component based on the URL path.
 const routes: Routes = [
   {
@@ -89,11 +88,6 @@ const routes: Routes = [
       {
         path: 'roles',
         component: RoleListComponent
-      },
-      {
-        path: 'purchases-by-service-graph',
-        component: PurchasesByServiceGraphComponent,
-        canActivate: [RoleGuard]
       },
     ],
     canActivate: [AuthGuard]

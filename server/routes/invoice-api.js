@@ -29,20 +29,20 @@ router.get("/purchases-graph", async (req, res) => {
         },
         {
           $group: {
-            "_id": {
+            _id: {
               title: "$lineItems.title",
-              price: "$lineItems.price"
+              price: "$lineItems.price",
             },
-            "count": {
-              $sum: 1
-            }
-          }
+            count: {
+              $sum: 1,
+            },
+          },
         },
         {
           $sort: {
             "_id.title": 1,
-          }
-        }
+          },
+        },
       ],
       function (err, purchaseGraph) {
         if (err) {
@@ -65,7 +65,7 @@ router.get("/purchases-graph", async (req, res) => {
           res.json(findPurchasesByServiceGraphResponse.toObject());
         }
       }
-    )
+    );
   } catch (e) {
     console.log(e);
     const findPurchasesByServiceCatchErrorResponse = new ErrorResponse(
