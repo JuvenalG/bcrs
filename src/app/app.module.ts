@@ -57,6 +57,8 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+
 
 
 @NgModule({
@@ -84,7 +86,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     RoleCreateComponent,
     InvoiceSummaryDialogComponent,
     RoleDetailsComponent,
-    RoleListComponent
+    RoleListComponent,
+    PurchasesByServiceGraphComponent,
+
 
 
 
@@ -112,7 +116,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSidenavModule,
     ChartModule,
     MatCheckboxModule,
-    MatGridListModule
+    MatGridListModule,
+
   ],
   providers: [
     {
