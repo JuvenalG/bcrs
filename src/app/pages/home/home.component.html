@@ -55,7 +55,7 @@ https://iconscout.com/icon/keyboard-cleaning-2554540
         >
 
 
-          <mat-checkbox name="{{ service.id }}" ngModel>
+          <mat-checkbox class="box" name="{{ service.id }}" ngModel>
             <img src="{{ service.img }}" alt=""><br>
             {{ service.title }} ({{ service.price | currency }})
           </mat-checkbox>
@@ -72,15 +72,17 @@ https://iconscout.com/icon/keyboard-cleaning-2554540
         <h4 fxFlex>Standard Fees</h4>
 
         <mat-form-field fxFlex style="width: 300px !important">
-          <input matInput name="parts" ngModel="0" placeholder="Parts" />
+          <input matInput name="parts" ngModel="" placeholder="Parts - $0.00" (keypress)="keyPressNumbersDecimal($event)" />
+
         </mat-form-field>
 
         <mat-form-field fxFlex style="width: 300px !important">
           <input
             matInput
             name="labor"
-            ngModel="0"
+            ngModel=""
             placeholder="Labor @ $50.00/hr"
+            (keypress)="keyPressNumbersDecimal($event)"
           />
         </mat-form-field>
       </div>
@@ -93,5 +95,7 @@ https://iconscout.com/icon/keyboard-cleaning-2554540
       <button mat-raised-button type="reset" color="warn">Cancel</button>
       <button mat-raised-button color="accent">Submit</button>
     </mat-card-actions>
+    <br>
+    <br>
   </form>
 </mat-card>
