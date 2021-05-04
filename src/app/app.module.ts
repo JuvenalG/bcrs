@@ -60,6 +60,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
 import { MainNavComponent } from './shared/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 
 @NgModule({
@@ -118,7 +119,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     ChartModule,
     MatCheckboxModule,
     MatGridListModule,
-    LayoutModule
+    LayoutModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [
     {
