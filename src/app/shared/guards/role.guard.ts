@@ -3,7 +3,7 @@
  * Author: Professor Krasso
  * Date: 30 April 2021
  * Modified By: Juvenal Gonzalez
- * Description: main component for role guard usihng typescript
+ * Description: main component for role guard using typescript
  */
 
 
