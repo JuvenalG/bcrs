@@ -22,7 +22,8 @@
 }
 
 .main-content {
-  padding-left: 30px;
+  margin: 0 auto 50px;
+  max-width: 1000px;
 }
 
 /* I changed this since it will cut off content on smaller screens.  */

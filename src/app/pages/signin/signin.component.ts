@@ -43,14 +43,14 @@ export class SigninComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       userName: [null, Validators.compose([Validators.required])],
-      password: [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]+$')])]
+      password: [null, Validators.compose([Validators.required])],
     });
   }
 
   /**
      * @description the sign-in form must accept a valid username and password to navigate to the home page
      */
-   signin() {
+  signin() {
     const userName = this.form.controls.userName.value;
     const password = this.form.controls.password.value;
 
@@ -66,7 +66,8 @@ export class SigninComponent implements OnInit {
       }
     }, err => {
       console.log(err);
-      this.errorMessage = err.error.message;
+      this.errorMessage = err;
+
     });
   }
 }
