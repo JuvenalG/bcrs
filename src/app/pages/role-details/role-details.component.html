@@ -32,7 +32,7 @@
     <!-- buttons -->
     <mat-card-actions align="end">
       <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
-      <button mat-raised-button color="accent">Submit</button>
+      <button mat-raised-button color="accent" [disabled] ='!form.valid'>Submit</button>
     </mat-card-actions>
     <!-- end buttons -->
 
