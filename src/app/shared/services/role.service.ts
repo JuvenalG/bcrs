@@ -39,7 +39,7 @@ export class RoleService {
    * @returns matching role
    */
   findRoleById(roleId: string): Observable<any> {
-      return this.http.get('/api/roles');
+      return this.http.get('/api/roles/' + roleId);
   }
 
   /**

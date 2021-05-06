@@ -42,7 +42,7 @@ export class RoleDetailsComponent implements OnInit {
     }, err => {
       console.log(err);
     }, () => {
-      this.form.controls['text'].setValue(this.role.text);
+      this.form.controls.text.setValue(this.role.text);
     })
    }
 
