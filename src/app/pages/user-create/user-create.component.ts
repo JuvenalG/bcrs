@@ -55,7 +55,7 @@ export class UserCreateComponent implements OnInit {
       newUser.password = this.form.controls.password.value,
       newUser.firstName = this.form.controls.firstName.value,
       newUser.lastName = this.form.controls.lastName.value,
-      newUser.phoneNumber = this.form.controls.address.value,
+      newUser.phoneNumber = this.form.controls.phoneNumber.value,
       newUser.address = this.form.controls.address.value,
       newUser.email = this.form.controls.email.value,
 
