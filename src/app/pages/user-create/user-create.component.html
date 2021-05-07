@@ -9,11 +9,11 @@
 */ -->
 
 <div fxLayout="view_column">
-  <mat-card class="mat-elevation-z8 user-create">
+  <mat-card [formGroup]="form" class="mat-elevation-z8 user-create">
     <mat-card-title>Create User</mat-card-title>
     <br />
     <!-- Start our user creation form here. -->
-    <form [formGroup]="form" (ngSubmit)="createUser()" #userForm>
+
       <mat-card-content>
         <div fxLayout="column" fxLayoutGap="10px">
           <mat-form-field>
@@ -88,8 +88,8 @@
         <button mat-raised-button (click)="cancel()" color="warn">
           Cancel
         </button>
-        <button mat-raised-button color="accent" [disabled] ='!form.valid' >Submit</button>
+        <button mat-raised-button color="accent" [disabled] ='!form.valid' (click)="createUser()">Submit</button>
       </mat-card-actions>
-    </form>
+
   </mat-card>
 </div>
