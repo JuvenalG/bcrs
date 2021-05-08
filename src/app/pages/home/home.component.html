@@ -72,7 +72,7 @@ https://iconscout.com/icon/keyboard-cleaning-2554540
         <h4 fxFlex>Standard Fees</h4>
 
         <mat-form-field fxFlex style="width: 300px !important">
-          <input matInput name="parts" ngModel="" placeholder="Parts - $0.00" (keypress)="keyPressNumbersDecimal($event)" />
+          <input matInput name="parts" ngModel="0" placeholder="Parts - $0.00" (keypress)="keyPressNumbersDecimal($event)" />
 
         </mat-form-field>
 
@@ -80,7 +80,7 @@ https://iconscout.com/icon/keyboard-cleaning-2554540
           <input
             matInput
             name="labor"
-            ngModel=""
+            ngModel="0"
             placeholder="Labor @ $50.00/hr"
             (keypress)="keyPressNumbersDecimal($event)"
           />
