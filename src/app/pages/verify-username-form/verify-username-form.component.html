@@ -35,8 +35,8 @@
     <br /><br />
 
     <!-- username form -->
-    <form [formGroup]="form" (ngSubmit)="validateUsername();" #usernameForm>
-    <mat-card-content fxLayout="column">
+
+    <mat-card-content fxLayout="column" [formGroup]="form"  #usernameForm>
       <small style="color: red;" *ngIf="errorMessage"> {{ errorMessage }}<br /></small>
       <mat-form-field fxFlex>
       <input matInput [formControl]="form.controls['username']" placeholder="Username">
@@ -46,11 +46,11 @@
       <br /><br />
       <div fxFlex fxLayoutAlign="end">
         <button mat-raised-button color="accent" routerLink="/" style="margin-right: 20px;">Back</button>
-        <button mat-raised-button color="accent">Submit</button>
+        <button mat-raised-button color="accent" (click)="validateUsername();" [disabled] ='!form.valid'>Submit</button>
       </div>
       <!-- end submit -->
     </mat-card-content>
-  </form>
+
     <!-- end username form -->
 
     </mat-card>
