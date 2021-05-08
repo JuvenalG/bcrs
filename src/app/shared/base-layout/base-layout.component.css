@@ -24,12 +24,19 @@
 .main-content {
   margin: 0 auto 50px;
   max-width: 1000px;
+  padding-bottom: 2.5rem;
+
 }
 
-/* I changed this since it will cut off content on smaller screens.  */
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
 .footer {
   bottom: 0;
-  /* position: fixed; */
+  position: absolute;
+  height: 2.5rem;
   width: 100%;
 }
 
